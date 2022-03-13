@@ -36,7 +36,8 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="#Skills" data-bs-toggle="collapse"
                            data-bs-target=".navbar-collapse.show">Skills</a>
-                    </li> <li class="nav-item active">
+                    </li>
+                    <li class="nav-item active">
                         <a class="nav-link" href="#Work" data-bs-toggle="collapse"
                            data-bs-target=".navbar-collapse.show">Work Experience</a>
                     </li>
@@ -68,10 +69,10 @@
                 </p>
             </div>
         </div>
-        <br>
+
         <div class="row">
             <div class="col-3">
-                <div class="h3 mt-0" id="Profile"  style="padding-top: 60px;">Profile</div>
+                <div class="h3 mt-0" id="Profile" style="padding-top: 60px;">Profile</div>
                 <hr class="my-2">
             </div>
         </div>
@@ -111,58 +112,96 @@
             <div class="jumbotron" style="background: #F1F1F1">
 
                 <div class="row">
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-8">
-                        <div id="karosel" class="carousel slide" data-ride="carousel"
-                             style="background-color: rgba(156,156,156,0.53)">
-                            <ol class="carousel-indicators">
-                                <li data-target="#karosel" data-slide-to="0" class="active"></li>
-                                <li data-target="#karosel" data-slide-to="1"></li>
-                                <li data-target="#karosel" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner" role="listbox">
-                                <div class="carousel-item active"><a href="mw1.html"><img class="d-block mx-auto"
-                                                                                          src="images/kedi.jpg"
-                                                                                          width="600"
-                                                                                          height="400"
-                                                                                          alt="First slide"></a>
-                                    <div class="carousel-caption"><strong>
-                                        <h5>Call of Duty: Modern Warfare</h5>
-                                        <p> The first episode of Modern Warfare</p>
-                                    </strong></div>
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                        <div id="accordion">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                                aria-expanded="false" aria-controls="collapseOne">
+                                            Project #1
+                                        </button>
+                                    </h5>
                                 </div>
-                                <div class="carousel-item"><a href="mw2.html"><img class="d-block mx-auto"
-                                                                                   src="images/kus.jpg"
-                                                                                   width="600" height="400"
-                                                                                   alt="Second slide"></a>
-                                    <div class="carousel-caption"><strong>
-                                        <h5>Call Of Duty: Modern Warfare 2</h5>
-                                        <p>Second episode of Modern Warfare</p>
-                                    </strong></div>
-                                </div>
-                                <div class="carousel-item"><a href="mw3.html"> <img class="d-block mx-auto"
-                                                                                    src="images/birinci.jpg" width="600"
-                                                                                    height="400" alt="Third slide"></a>
-                                    <div class="carousel-caption"><strong>
-                                        <h5>Call of Duty: Modern Warfare 3</h5>
-                                        <p>Third and last episode of Modern Warfare</p>
-                                    </strong></div>
+
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                                     data-parent="#accordion">
+                                    <div class="card-body ">
+                                        <div class="card" style="width: 18rem;">
+                                            <img class="card-img-top" src="images/sanandreas.jpg" alt="Card image cap">
+                                            <div class="card-body">
+                                                <p class="card-text">Beautiful demonstration of Grand theft Auto
+                                                San Andreas radio. Radio station files were not included, they take
+                                                ~1.2 GB space. In game files, you can extract raw files.</p>
+                                                <a href="https://github.com/dav1lex/SanAndreasRadio" target="_blank"
+                                                   class="btn btn-success btn-lg active" role="button"
+                                                   aria-pressed="true">Go to Project</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <a class="carousel-control-prev" href="#karosel" role="button" data-slide="prev"> <span
-                                    class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-                                    class="sr-only">Previous</span> </a> <a class="carousel-control-next"
-                                                                            href="#karosel"
-                                                                            role="button" data-slide="next"> <span
-                                class="carousel-control-next-icon" aria-hidden="true"></span> <span
-                                class="sr-only">Next</span> </a></div>
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse"
+                                                data-target="#collapseTwo" aria-expanded="false"
+                                                aria-controls="collapseTwo">
+                                            Project #2                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                     data-parent="#accordion">
+                                    <div class="card-body">
+                                        <div class="card" style="width: 18rem;">
+                                            <img class="card-img-top" src="images/cipher.jpg" alt="Card image cap">
+                                            <div class="card-body">
+                                                <p class="card-text">Text/Sentence cipher. With this application
+                                                encrypting/decrypting is pretty easy. If you think
+                                                government have eyes on you, I suggest using my cipher.</p>
+                                                <a href="https://github.com/dav1lex/Text_Encryptor" target="_blank"
+                                                   class="btn btn-primary btn-lg active" role="button"
+                                                   aria-pressed="true">Go to Project</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse"
+                                                data-target="#collapseThree" aria-expanded="false"
+                                                aria-controls="collapseThree">
+                                            Project #3
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                     data-parent="#accordion">
+                                    <div class="card-body">
+                                        <div class="card" style="width: 18rem;">
+                                            <img class="card-img-top" src="images/ios.png" alt="Card image cap">
+                                            <div class="card-body">
+                                                <p class="card-text">Chinese replica of IOS calculator to use
+                                                    in Android , in fact I am not chinese</p>
+                                                <a href="https://github.com/dav1lex/IOS_Calculator" target="_blank"
+                                                   class="btn btn-success btn-lg active" role="button"
+                                                   aria-pressed="true">Go to Project</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-sm-2"></div>
+                    <div class="col-2"></div>
                 </div>
             </div>
         </div>
 
-        <div class="h3 mt-0" id="Education"  style="padding-top: 60px;">Education and Languages</div>
+        <div class="h3 mt-0" id="Education" style="padding-top: 60px;">Education and Languages</div>
         <div class="row">
             <div class="col-5">
                 <hr>
@@ -281,7 +320,7 @@
             </div>
         </div>
 
-        <div class="h3 mt-0" id="Work"  style="padding-top: 60px;">Work Experience</div>
+        <div class="h3 mt-0" id="Work" style="padding-top: 60px;">Work Experience</div>
         <div class="row">
             <div class="col-4">
                 <hr>
