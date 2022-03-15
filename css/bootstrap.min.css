@@ -61,13 +61,15 @@
 
 .meintext {
     font-family: 'Atkinson Hyperlegible', sans-serif;
-    font-size: 60px;
+    font-size: 70px;
     color: #212529;
-    /*min-font-size: 50px; yok knk*/
+
 
 }
 @media (max-width: 576px) {
     .meintext {
+        font-family: 'Atkinson Hyperlegible', sans-serif;
+        color: #212529;
         font-size: 30px;
     }
 }
