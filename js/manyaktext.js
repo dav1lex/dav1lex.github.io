@@ -12,10 +12,12 @@
 //     }
 // }
 
-var texts = ["example1", "example2", "example3"];
+var texts1 = ["Merhaba!", "Hello!", "Dzień Dobry!", "Hallo!"];
 var count = 0;
+var eldz = document.getElementById('manyak');
 function changeText() {
-    $("#manyak").text(texts[count]);
-    count < 3 ? count++ : count = 0;
+
+    $("#manyak").text(texts1[count]);
+    count < 4 ? count++ : count = 0;
 }
-setInterval(changeText, 500);
+setInterval(changeText, 1800);

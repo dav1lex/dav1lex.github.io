@@ -8,4 +8,3 @@ btn.onclick = function showorno() {
         target.style.visibility = "hidden";
     }
 }
-

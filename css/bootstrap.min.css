@@ -39,11 +39,40 @@
     box-sizing: border-box
 }
 
-/* latin-ext */
-@font-face {
-    font-family: 'Atkinson Hyperlegible', sans-serif;
+/* burasi benim  burasi benim  burasi benim  burasi benim */
+
+.smolcontainer {
+    height: 170px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #f1f1f1;
+    border-color: #212529;
+    border-style: solid;
+    border-radius: 1rem;
+    border-bottom-left-radius: 40rem;
+    border-top-right-radius: 40rem;
+    text-align: center;
+    vertical-align: center;
+    line-height: 170px;
 }
 
+
+.manyak {
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-size: 60px;
+    color: #212529;
+    /*min-font-size: 50px; yok knk*/
+
+}
+@media (max-width: 576px) {
+    .manyak {
+        font-size: 50px;
+    }
+}
+
+/* burasi benim  burasi benim  burasi benim  burasi benim */
 
 html {
     font-family: sans-serif;
