@@ -42,25 +42,26 @@
 /* burasi benim  burasi benim  burasi benim  burasi benim */
 
 .smolcontainer {
-    height: 170px;
+    height: 300px;
 
     margin-right: auto;
     margin-left: auto;
     background-color: #f1f1f1;
     border-color: #212529;
     border-style: solid;
+    border-width: 2.5px;
     border-radius: 3.5rem;
     border-top-right-radius: 0;
     border-bottom-left-radius: 0;
     text-align: center;
     vertical-align: center;
-    line-height: 170px;
+    line-height: 300px;
 }
 
 
 .meintext {
     font-family: 'Atkinson Hyperlegible', sans-serif;
-    font-size: 70px;
+    font-size: 140px;
     color: #212529;
 
 
@@ -69,7 +70,7 @@
     .meintext {
         font-family: 'Atkinson Hyperlegible', sans-serif;
         color: #212529;
-        font-size: 50px;
+        font-size: 70px;
     }
 }
 
