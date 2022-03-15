@@ -59,7 +59,7 @@
 }
 
 
-.manyak {
+.meintext {
     font-family: 'Atkinson Hyperlegible', sans-serif;
     font-size: 60px;
     color: #212529;
@@ -67,8 +67,8 @@
 
 }
 @media (max-width: 576px) {
-    .manyak {
-        font-size: 50px;
+    .meintext {
+        font-size: 30px;
     }
 }
 
