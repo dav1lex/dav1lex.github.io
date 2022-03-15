@@ -39,6 +39,12 @@
     box-sizing: border-box
 }
 
+/* latin-ext */
+@font-face {
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+}
+
+
 html {
     font-family: sans-serif;
     scroll-behavior: smooth;
