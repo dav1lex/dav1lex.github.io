@@ -61,16 +61,16 @@
 
 .meintext {
     font-family: 'Atkinson Hyperlegible', sans-serif;
-    font-size: 140px;
+    font-size: 120px;
     color: #212529;
 
 
 }
-@media (max-width: 576px) {
+@media only screen and (max-width: 1000px) {
     .meintext {
         font-family: 'Atkinson Hyperlegible', sans-serif;
         color: #212529;
-        font-size: 70px;
+        font-size: 50px;
     }
 }
 
