@@ -1,4 +1,4 @@
-var texts1 = ["Merhaba!", "Hello!", "Dzień Dobry!", "Здрастуйте", "Hallo!", "こんにちは","你好", "नमस्ते"];
+var texts1 = ["Merhaba!", "Hello!", "Dzień Dobry!", "Здрастуйте!", "Hallo!", "こんにちは!", "你好!", "नमस्ते!"];
 var count = 0;
 var eldz = document.getElementById('manyak');
 
