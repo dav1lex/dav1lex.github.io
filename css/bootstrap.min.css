@@ -63,6 +63,7 @@
     font-family: 'Atkinson Hyperlegible', sans-serif;
     font-size: 120px;
     color: #212529;
+    text-shadow: 68px 45px 14px #9fcdff;
 
 
 }
@@ -70,7 +71,8 @@
     .meintext {
         font-family: 'Atkinson Hyperlegible', sans-serif;
         color: #212529;
-        font-size: 50px;
+        font-size: 52px;
+        text-shadow: 46px 35px 8px #9fcdff;
     }
 }
 
