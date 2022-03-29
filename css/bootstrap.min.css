@@ -67,6 +67,37 @@
 
 
 }
+
+textarea {
+    overflow: initial;
+    width: 300px !important;
+    height: 150px !important;
+    font-size: 18px !important;
+    resize: none !important;
+    overflow-y: scroll !important;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: "Atkinson Hyperlegible";
+
+}
+
+@media only screen and (max-width: 1000.98px) {
+    textarea {
+        overflow: initial;
+        width: 250px !important;
+        height: 190px !important;
+        font-size: 17px !important;
+        resize: none !important;
+        overflow-y: scroll !important;
+        margin-right: auto;
+        margin-left: auto;
+        font-family: "Atkinson Hyperlegible";
+
+
+    }
+
+}
+
 @media only screen and (max-width: 1000px) {
     .meintext {
         font-family: 'Atkinson Hyperlegible', sans-serif;
@@ -75,6 +106,7 @@
         text-shadow: 46px 35px 8px #9fcdff;
     }
 }
+
 
 /* burasi benim  burasi benim  burasi benim  burasi benim */
 
@@ -86,7 +118,6 @@ html {
     -webkit-tap-highlight-color: transparent
 
 }
-
 
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
@@ -304,8 +335,23 @@ input[type=checkbox], input[type=radio] {
 }
 
 textarea {
-    overflow: auto;
-    resize: vertical
+
+    overflow: initial;
+    font-size: 35px;
+    resize: horizontal;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media only screen and (max-width: 1000px) {
+    .textarea {
+        font-family: 'Atkinson Hyperlegible', sans-serif;
+        color: #212529;
+        font-size: 52px;
+        text-shadow: 46px 35px 8px #9fcdff;
+        margin-right: auto;
+        margin-left: auto
+    }
 }
 
 fieldset {
@@ -4785,7 +4831,6 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     border-radius: .25rem;
 
 }
-
 
 
 .card > hr {
