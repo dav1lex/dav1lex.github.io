@@ -70,8 +70,8 @@
 
 textarea {
     overflow: initial;
-    width: 300px !important;
-    height: 150px !important;
+    width: 500px !important;
+    height: 130px !important;
     font-size: 18px !important;
     resize: none !important;
     overflow-y: scroll !important;
@@ -84,7 +84,7 @@ textarea {
 @media only screen and (max-width: 1000.98px) {
     textarea {
         overflow: initial;
-        width: 250px !important;
+        width: 180px !important;
         height: 190px !important;
         font-size: 17px !important;
         resize: none !important;
