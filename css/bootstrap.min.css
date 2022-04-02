@@ -56,9 +56,9 @@
 
     #square {
         border: 1px solid black;
-        width: 3px;
+        width: 2px;
         background-color: transparent;
-        height: 3px;
+        height: 2px;
         position: absolute;
         z-index: 1;
     }
