@@ -2,23 +2,11 @@ var maxwidth = getWidth();
 var maxheight = getHeight()
 
 function getWidth() {
-    return Math.max(
-        document.body.scrollWidth,
-        document.documentElement.scrollWidth,
-        document.body.offsetWidth,
-        document.documentElement.offsetWidth,
-        document.documentElement.clientWidth
-    );
+    return Math.max(document.body.scrollWidth, document.documentElement.scrollWidth, document.body.offsetWidth, document.documentElement.offsetWidth, document.documentElement.clientWidth);
 }
 
 function getHeight() {
-    return Math.max(
-        document.body.scrollHeight,
-        document.documentElement.scrollHeight,
-        document.body.offsetHeight,
-        document.documentElement.offsetHeight,
-        document.documentElement.clientHeight
-    );
+    return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.documentElement.clientHeight);
 }
 
 
@@ -29,9 +17,9 @@ var pos_y = 10; //vertical
 let hitright = false;
 let hittop = false;
 
-function heydarling(){
+function heydarling() {
 
-    alert("Hi darling!! <3")
+    alert("❤️🧡💛💚 \r\n Have a good day!! \r\n ❤️🧡💛💚 ")
 }
 
 
@@ -91,5 +79,4 @@ function gobabygo() {
 }
 
 
-
-setInterval(gobabygo, 26)
+setInterval(gobabygo, 17)
