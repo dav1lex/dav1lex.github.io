@@ -41,6 +41,18 @@
 
 /* burasi benim  burasi benim  burasi benim  burasi benim */
 
+
+#square {
+    border: 1px solid black;
+    width: 7px;
+    background-color: transparent;
+    height: 7px;
+    position: absolute;
+
+
+
+}
+
 .smolcontainer {
     height: 300px;
 
