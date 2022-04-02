@@ -14,7 +14,7 @@ var square = document.getElementById("square");
 var pos_x = 10; //horizontal
 var pos_y = 10; //vertical
 
-let hitright = false;
+let hitside = false;
 let hittop = false;
 
 function heydarling() {
@@ -49,17 +49,17 @@ function gotop() {
 
 
 function gobabygo() {
-    if (!hitright) {
+    if (!hitside) {
         goright();
         if (maxwidth === pos_x) {
-            hitright = true;
+            hitside = true;
         }
     }
 
-    if (hitright) {
+    if (hitside) {
         goleft();
         if (pos_x === 1) {
-            hitright = false;
+            hitside = false;
         }
     }
 
