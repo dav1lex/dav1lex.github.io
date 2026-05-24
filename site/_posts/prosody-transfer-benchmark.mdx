@@ -1,0 +1,57 @@
+---
+title: "how well does voice cloning preserve pitch and prosody?"
+date: "2026-05-24"
+tags: ["tts", "research", "prosody"]
+---
+
+voice cloning isn't just about sounding like someone. it's about sounding like them **when they speak** - their rhythm, their pitch range, the way their voice goes up and down.
+
+i built a benchmark to measure this: how well do TTS models preserve speaker-level prosody (F0 characteristics) from reference audio?
+
+## what i did
+
+same setup as the breathiness benchmark - 3 speaker pairs from VCTK, same 3 models (Chatterbox, XTTS-v2, Kokoro). this time i focused on pitch metrics:
+
+- **F0 mean** - average pitch
+- **F0 std** - pitch variability
+- **F0 range** - how wide the pitch swings
+- **Speaking rate** - syllables per second
+- **F0 contour** - the full pitch track over time, compared using DTW (dynamic time warping)
+
+the scoring formula combines absolute accuracy (how close to the reference) and contrast retention (does the breathy-vs-modal difference survive cloning?).
+
+## results
+
+| Rank | Model | Score | DTW (lower=better) | Contrast retention |
+|------|-------|-------|-------------------|-------------------|
+| 1 | **Chatterbox** | **6.09** | **11.27** | 0.48 |
+| 2 | XTTS-v2 | 6.69 | 13.20 | **0.79** |
+| 3 | Kokoro | 9.05 | 16.41 | 0.00 |
+
+## what this tells me
+
+**Chatterbox preserves the pitch contour best.** its DTW distance (11.27) is the lowest - meaning the generated F0 track most closely follows the reference speaker's melody. when you voice-clone with Chatterbox, the "shape" of the pitch matches.
+
+**XTTS-v2 preserves the contrast best** (0.79 vs 0.48). the difference between breathy and modal speakers - the relative pitch shift - survives cloning more faithfully in XTTS. even if the absolute pitch values drift, the relationship between conditions stays intact.
+
+this is nuanced, and i think both findings are meaningful. Chatterbox gets the tune right. XTTS gets the contrast right.
+
+## the kokoro sanity check
+
+Kokoro outputs are identical regardless of the reference - same default voice (af_bella) every time. zero contrast retention, worst DTW distance (16.41). the benchmark works: it clearly detects when no adaptation happens.
+
+## a subtle problem with the math
+
+one pair had a reference F0 range contrast of only 1.52 Hz - essentially zero. when you divide by a near-zero denominator, you get nonsense ratios (-26.56 for Chatterbox on that metric). i clamped the contrast retention to [0, 1], so it maxes or mins out cleanly, but that specific metric-pair contributes nothing to the score for that pair. it's a design tradeoff - VCTK pairs were selected for breathiness, not pitch range.
+
+## perceptual reality check
+
+i listened to the outputs. both Chatterbox and XTTS are recognizable as the reference speaker. Chatterbox loses breathiness texture while keeping the pitch trajectory. XTTS preserves speaker character with a slight pitch elevation. Kokoro sounds like a completely different person - because it is.
+
+## limitations
+
+- F0 estimation is sensitive to microphone quality and background noise.
+- speaking rate estimation via peak counting is a rough proxy.
+- single sentence per pair limits generalization.
+
+full code and results in the [tts-research repo](https://github.com/dav1lex/tts-research).

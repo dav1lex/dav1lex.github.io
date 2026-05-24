@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ömer uğur</title>
+    <link>https://dav1lex.github.io</link>
+    <description>i break things</description>
+    <language>en</language>
+    <atom:link href="https://dav1lex.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+      <title>breathiness preservation benchmark</title>
+      <link>https://dav1lex.github.io/blog/breathiness-preservation-benchmark</link>
+      <guid>https://dav1lex.github.io/blog/breathiness-preservation-benchmark</guid>
+      <pubDate>Fri, 24 May 2024 00:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

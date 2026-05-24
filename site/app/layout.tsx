@@ -4,8 +4,8 @@ import Footer from "../components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "omer ugur",
-  description: "ai / tts / scraping / reversing",
+  title: "ömer uğur",
+  description: "i break things",
 };
 
 export default function RootLayout({

@@ -1,33 +1,51 @@
 ---
-title: "breathiness preservation benchmark"
-date: "2024-05-24"
+title: "do voice clones keep your voice texture?"
+date: "2026-05-24"
 tags: ["tts", "research", "benchmark"]
 ---
 
-Does voice-cloning TTS preserve breathy voice quality from reference audio?
+when you clone someone's voice with TTS, does the output sound like *them*? i don't mean just the general voice - i mean the texture. the breathiness. the way some people's voices have that airy quality, like they're speaking close to a microphone.
 
-## what we did
+i wanted to measure this objectively. so i built a benchmark.
 
-1. Picked 3 female speaker pairs from VCTK dataset (Southern England, Welsh/American, Scottish/English NE). Same text within each pair. Breathy candidates chosen by lowest CPP+HNR scores, then confirmed by human listening.
+## what i did
 
-2. Generated audio with 3 models: Chatterbox, XTTS-v2, Kokoro (each produces 6 WAVs).
+i picked 3 pairs of female speakers from the VCTK dataset. each pair has one breathy speaker and one neutral speaker, saying the same sentence. i ran these through 3 TTS models:
 
-3. Extracted breathiness metrics using Praat (CPP primary, HNR + spectral tilt supporting).
+- **XTTS-v2** - supports voice cloning
+- **Chatterbox** - supports voice cloning
+- **Kokoro** - no voice cloning (included as a baseline)
 
-4. Gate check: Reference clips must clearly separate breathy from neutral before any ranking is trusted. Our references pass (CPP d=-4.15, HNR d=-2.03).
+i measured breathiness using standard acoustic metrics: CPP (cepstral peak prominence) and HNR (harmonic-to-noise ratio). both are well-established proxies for perceived breathiness. lower CPP = more breathy. lower HNR = more breathy.
+
+## the gate check
+
+before trusting my results, i needed to make sure the reference clips actually differ in breathiness. the gate passed: CPP shows a Cohen's d of -4.15 between breathy and neutral references (strong separation). HNR shows -2.03.
 
 ## results
 
 | Rank | Model | Score | Notes |
 |------|-------|-------|-------|
-| 1 | XTTS-v2 | 0.097 | Best breathiness preservation |
-| 2 | Chatterbox | 0.311 | Close on retention, higher absolute error |
-| 3 | Kokoro | 1.448 | No voice cloning = zero retention (baseline) |
+| 1 | **XTTS-v2** | **0.097** | best breathiness preservation |
+| 2 | Chatterbox | 0.311 | close on retention, higher absolute error |
+| 3 | Kokoro | 1.448 | no voice cloning = baseline |
 
-## caveats
+**XTTS-v2** preserved breathiness the best. it maintained the contrast between breathy and neutral voices most accurately.
 
-- CPP and HNR are acoustic proxies, not perception — breathy-sounding doesn't always mean low CPP
-- Unmatched accents in pairs 002 and 003 may introduce phonetic confounds
-- Only 3 pairs, 1 sentence per pair — increase for publication
-- Kokoro has no voice cloning, included as "no adaptation" baseline only
-- Reference breathiness labels verified by perceptual listening check
+**Chatterbox** was close on retention (0.510 vs 0.518) but had higher absolute error across all metrics. the outputs matched the reference CPP values better than XTTS, but drifted more on other metrics.
+
+**Kokoro** confirms what we already know - without voice cloning, there's zero breathiness retention. every output for a given pair sounds identical.
+
+## little surprises
+
+- 4 out of 6 XTTS outputs showed audio clipping (signal hits max amplitude), which might affect measurement reliability.
+- Kokoro outputs for breathy and neutral within the same pair are literally identical - same duration, same CPP, same HNR. no adaptation at all.
+- spectral tilt (another breathiness proxy) failed the gate check because the direction was inconsistent. turns out breathy doesn't always mean the same thing acoustically.
+
+## limitations
+
+- CPP and HNR are acoustic proxies, not perception. breathy-sounding doesn't always mean low CPP.
+- two of the three speaker pairs have unmatched accents (Welsh vs American, Scottish vs English NE). this might introduce phonetic confounds.
+- only 3 pairs, 1 sentence each. too small for publication-grade claims.
+
+full code and results in the [tts-research repo](https://github.com/dav1lex/tts-research).

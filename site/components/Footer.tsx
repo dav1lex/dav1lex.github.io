@@ -4,11 +4,8 @@ export default function Footer() {
   return (
     <footer className="font-mono text-xs text-muted leading-[1.8] mt-12">
       <p className="mb-2">
-        omer ugur{" "}
-        <span className="text-accent">//</span> ai{" "}
-        <span className="text-accent">//</span> tts{" "}
-        <span className="text-accent">//</span> scraping{" "}
-        <span className="text-accent">//</span> reversing
+        ömer uğur{" "}
+        <span className="text-accent">//</span> i break things
       </p>
       <p>
         <a
@@ -26,14 +23,14 @@ export default function Footer() {
         </a>
         {" · "}
         <a
-          href="mailto:omer@example.com"
+          href="mailto:info@titancode.pl"
           className="text-muted hover:text-link-hover no-underline"
         >
           mail
         </a>
         {" · "}
         <Link
-          href="/rss"
+          href="/rss.xml"
           className="text-muted hover:text-link-hover no-underline"
         >
           rss

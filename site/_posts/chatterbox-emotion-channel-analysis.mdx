@@ -1,0 +1,42 @@
+---
+title: "does emotion control work the same across tts models?"
+date: "2026-05-24"
+tags: ["tts", "research", "emotion"]
+---
+
+i wanted to answer a simple question: when you tell a TTS model to "sound happy" or "sound angry," does it change the same things across different models?
+
+there's a known paper by kacper wikiel where he tested this on a model called Zonos. Zonos has an 8-dimensional emotion vector - basically 8 knobs you can tweak independently. kacper found something interesting: **timbre** (the texture of the voice) moved the most, but **pitch** was the best predictor of which emotion was being expressed. there's a mismatch between what physically changes and what carries the information.
+
+i wanted to see if this mismatch holds for a different model: Chatterbox.
+
+## what i did
+
+Chatterbox doesn't have 8 knobs. it has one: an `exaggeration` value from 0 to 1. i mapped 7 emotions to different exaggeration levels - happy got 0.7, angry got 0.9, sad got 0.4, etc. i generated 5 neutral sentences for each emotion (35 audio files total).
+
+then i extracted 17 acoustic features spanning 6 channels: pitch, tempo, energy, pauses, timbre, and voice quality. i trained a classifier on each channel separately to see which one carries the most emotional information.
+
+## what i found
+
+**the mismatch didn't replicate.** in Chatterbox, **pauses** - both move the most AND classify the best (accuracy 0.457, where random is 0.143). the single exaggeration knob can't route expressiveness to specific channels like Zonos's 8D vector can. it defaults to timing - pauses and tempo - as its main lever.
+
+| Channel | Chatterbox accuracy | Zonos accuracy |
+|---------|-------------------|----------------|
+| Pauses | **0.457** | 0.23 |
+| Tempo | 0.400 | 0.17 |
+| Voice quality | 0.400 | 0.26 |
+| Pitch | 0.314 | **0.60** |
+| Timbre | 0.314 | 0.37 |
+| Energy | 0.286 | 0.20 |
+
+what this tells me: **architecture shapes how emotion shows up.** Zonos's 8D vector routes emotion to timbre. Chatterbox's scalar routes it to pauses. neither is wrong - they're just different design decisions that produce different acoustic signatures.
+
+all 6 channels still beat the random baseline (0.143), so the exaggeration knob does affect everything - just not evenly.
+
+## caveats
+
+- only 5 sentences, 1 seed, 1 model. small sample.
+- the emotion-to-exaggeration mapping is my best guess - chatterbox doesn't document these values.
+- the comparison with zonos is against published results, not a re-run.
+
+full code and results in the [tts-research repo](https://github.com/dav1lex/tts-research).
