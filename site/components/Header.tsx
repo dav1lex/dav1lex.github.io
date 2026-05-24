@@ -25,19 +25,20 @@ export default function Header() {
       <pre className="font-mono text-[6px] text-accent leading-[1.1] mb-3.5">
         {" ▄▄▄▄     ▄▄   ▄    ▄ ▄▄▄    ▄      ▄▄▄▄▄▄ ▄    ▄\n █   ▀▄   ██   ▀▄  ▄▀   █    █      █       █  █\n █    █  █  █   █  █    █    █      █▄▄▄▄▄   ██\n █    █  █▄▄█   ▀▄▄▀    █    █      █       ▄▀▀▄\n █▄▄▄▀  █    █   ██   ▄▄█▄▄  █▄▄▄▄▄ █▄▄▄▄▄ ▄▀  ▀▄"}
       </pre>
-      <p className="font-mono text-xs text-muted mb-3.5">
-        ömer uğur - floppy disks to serverless
+      <p className="text-[16px] text-muted mb-3.5" style={{ fontFamily: "'DOS VGA', monospace" }}>
+        omer ugur - the internet raised me
       </p>
-      <nav className="flex flex-wrap gap-4 font-mono text-[13px]">
+      <nav className="flex flex-wrap gap-4">
         {NAV.map(({ label, href }) => (
           <Link
             key={href}
             href={href}
-            className={`no-underline ${
+            className={`no-underline text-[16px] ${
               isActive(href)
                 ? "text-text"
                 : "text-muted hover:text-link-hover"
             }`}
+            style={{ fontFamily: "'DOS VGA', monospace" }}
           >
             {label}
           </Link>

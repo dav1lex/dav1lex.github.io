@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "DOS VGA";
+  src: url("/fonts/Perfect DOS VGA 437.ttf") format("truetype");
+  font-display: swap;
+}
+
 @theme {
   --color-bg: #0d0d0d;
   --color-text: #e0e0e0;

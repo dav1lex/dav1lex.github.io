@@ -5,11 +5,11 @@ import { formatDate } from "@/lib/utils";
 import BlinkCursor from "@/components/BlinkCursor";
 
 export const metadata: Metadata = {
-  title: "Ömer Uğur — Full-Stack Developer & Tinkerer | Poland",
+  title: "Ömer Uğur  -  Full-Stack Developer & Tinkerer | Poland",
   description:
     "Ömer Uğur is a full-stack developer based in Poland. Building AI agents, benchmarking TTS models, scraping at scale. Personal blog about code, voice AI, and reverse engineering.",
   openGraph: {
-    title: "Ömer Uğur — Full-Stack Developer & Tinkerer",
+    title: "Ömer Uğur  -  Full-Stack Developer & Tinkerer",
     description:
       "Full-stack developer based in Poland. AI agents, TTS research, scraping. Personal blog and project portfolio.",
     type: "profile",
@@ -54,8 +54,8 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <p className="mb-4">
-        i&apos;m omer. i build things: ai agents, tts research, web scrapers,
-        reverse engineering. sometimes all three in one project.
+        i&apos;m omer. i build web apps and dig into AI. not big on the
+        industry around it  -  just the work.
       </p>
       <p className="text-muted">
         this is where i write about what i learn, break, and ship.<BlinkCursor />

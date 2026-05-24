@@ -6,13 +6,13 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://dav1lex.titancode.pl"),
   title: {
-    default: "Ömer Uğur — Full-Stack Developer & Tinkerer",
+    default: "Ömer Uğur  -  Full-Stack Developer & Tinkerer",
     template: "%s | Ömer Uğur",
   },
   description:
     "Personal site of Ömer Uğur. Full-stack developer, AI agent builder, TTS researcher. Based in Poland. Writing about code, voice cloning, scraping, and reverse engineering.",
   openGraph: {
-    title: "Ömer Uğur — Full-Stack Developer & Tinkerer",
+    title: "Ömer Uğur  -  Full-Stack Developer & Tinkerer",
     description:
       "Full-stack developer. AI agents, TTS research, scraping at scale. Poland.",
     url: "https://dav1lex.titancode.pl",

@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { CONTACT } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Ömer Uğur — full-stack developer based in Poland. Made in Turkey, forged in Poland. Building AI agents, TTS research, scraping at scale.",
+    "Ömer Uğur  -  full-stack developer based in Poland. Made in Turkey, forged in Poland. Building AI agents, TTS research, scraping at scale.",
 };
 
 export default function AboutPage() {
@@ -14,43 +13,41 @@ export default function AboutPage() {
 
       <div className="space-y-4 text-[15px] leading-[1.7]">
         <p>
-          i&apos;m omer. made in turkey, forged in poland. full-stack
-          by trade, tinkerer by nature. i build whatever gets the job done.
+          i&apos;m omer. born in istanbul, living in warsaw for the past
+          seven years. somewhere between the two  -  not quite either anymore.
         </p>
 
         <p>
-          this site is where i write about projects, experiments, and
-          whatever i&apos;m currently breaking.
+          the name is davilex. it&apos;s from the dutch studio behind those
+          old knight rider games  -  played them as a kid, started using it
+          as a handle everywhere. it stuck.
         </p>
-      </div>
 
-      <div className="border-t border-rule mt-8 pt-6 font-mono text-xs text-muted space-y-2">
         <p>
-          <span className="text-accent">contact</span>
+          i do full-stack web development and AI research. cs grad, but the
+          real education was the years online before that. i learned by
+          breaking things and reading whatever explained why.
         </p>
+
         <p>
-          <a
-            href={`mailto:${CONTACT.email}`}
-            className="text-link hover:text-link-hover no-underline"
-          >
-            {CONTACT.email}
-          </a>
+          the work right now is web apps and AI agents  -  building systems
+          that actually do something, not demos. i write about what i&apos;m
+          working on, what didn&apos;t work, and occasionally what i think.
         </p>
+
         <p>
-          <a
-            href={CONTACT.github}
-            className="text-link hover:text-link-hover no-underline"
-          >
-            github.com/dav1lex
-          </a>
+          outside the terminal: i go to the gym, i go to raves, i listen to
+          a lot of music that probably sounds aggressive to most people. i
+          read about history more than i talk about it.
         </p>
+
         <p>
-          <a
-            href={CONTACT.linkedin}
-            className="text-link hover:text-link-hover no-underline"
-          >
-            linkedin.com/in/omerugur
-          </a>
+          this site is personal. it&apos;s not a portfolio. it&apos;s where
+          i think out loud.
+        </p>
+
+        <p>
+          and yeah dude, still learning...
         </p>
       </div>
     </section>

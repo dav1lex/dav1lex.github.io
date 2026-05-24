@@ -28,7 +28,7 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
   <channel>
     <title>ömer uğur</title>
     <link>${SITE}</link>
-    <description>floppy disks to serverless</description>
+    <description>the internet raised me</description>
     <language>en</language>
     <atom:link href="${SITE}/rss.xml" rel="self" type="application/rss+xml"/>
     ${items

@@ -17,7 +17,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { page } = await params;
   return {
-    title: `Blog — Page ${page}`,
+    title: `Blog  -  Page ${page}`,
     description:
       "Articles on AI agents, TTS research, voice cloning, web scraping, and reverse engineering.",
     robots: page === "2" && getAllPosts().length <= POSTS_PER_PAGE ? { index: false } : undefined,
