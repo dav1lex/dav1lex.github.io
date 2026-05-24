@@ -5,9 +5,8 @@ export default function AboutPage() {
 
       <div className="space-y-4 text-[15px] leading-[1.7]">
         <p>
-          i&apos;m omer. made in turkey, based in poland. i work
-          across the stack — from frontends to ai agents to scraping at
-          scale. i care about things that actually ship.
+          i&apos;m omer. made in turkey, forged in poland. full-stack
+          by trade, tinkerer by nature. i build whatever gets the job done.
         </p>
 
         <p>
