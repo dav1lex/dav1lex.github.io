@@ -1,7 +1,6 @@
 export default function Palette() {
   return (
-    <div className="max-w-2xl mx-auto px-5 py-16 font-[Georgia,Times_New_Roman,serif] text-text">
-      {/* title */}
+    <>
       <h1 className="text-xl mb-2 text-text">design palette</h1>
       <p className="text-sm text-muted font-mono mb-12">dav1lex.github.io — every token, one page</p>
 
@@ -106,7 +105,7 @@ export default function Palette() {
           no js required · no cookies · no trackers · no bullshit
         </p>
       </footer>
-    </div>
+    </>
   );
 }
 
