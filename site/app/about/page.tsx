@@ -1,3 +1,5 @@
+import { CONTACT } from "@/lib/contact";
+
 export default function AboutPage() {
   return (
     <section>
@@ -21,15 +23,15 @@ export default function AboutPage() {
         </p>
         <p>
           <a
-            href="mailto:info@titancode.pl"
+            href={`mailto:${CONTACT.email}`}
             className="text-link hover:text-link-hover no-underline"
           >
-            info@titancode.pl
+            {CONTACT.email}
           </a>
         </p>
         <p>
           <a
-            href="https://github.com/dav1lex"
+            href={CONTACT.github}
             className="text-link hover:text-link-hover no-underline"
           >
             github.com/dav1lex
@@ -37,7 +39,7 @@ export default function AboutPage() {
         </p>
         <p>
           <a
-            href="https://linkedin.com/in/omerugur"
+            href={CONTACT.linkedin}
             className="text-link hover:text-link-hover no-underline"
           >
             linkedin.com/in/omerugur
