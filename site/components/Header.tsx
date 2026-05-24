@@ -18,7 +18,7 @@ export default function Header() {
         dav1lex.github.io
       </p>
       <p className="font-mono text-xs text-muted mb-3.5">
-        omer ugur — ai / tts / scraping / reversing
+        omer ugur - ai / tts / scraping / reversing
       </p>
       <nav className="flex gap-4 font-mono text-[13px]">
         {NAV.map(({ label, href }) => (

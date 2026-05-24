@@ -2,7 +2,7 @@ export default function Palette() {
   return (
     <>
       <h1 className="text-xl mb-2 text-text">design palette</h1>
-      <p className="text-sm text-muted font-mono mb-12">dav1lex.github.io — every token, one page</p>
+      <p className="text-sm text-muted font-mono mb-12">dav1lex.github.io - every token, one page</p>
 
       {/* COLORS */}
       <Section title="colors" />
@@ -57,7 +57,7 @@ export default function Palette() {
           {"    ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄\n    █ █▀▀ █ █ █▀▀ █▀▀█     █\n    █ █▀▀ █ █ █▀▀ █▄▄▀     █\n    █ ▀▀▀ ▀▀▀ ▀▀▀ ▀ ▀     █\n    ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀"}
         </pre>
         <p className="font-mono text-[15px] text-text mb-1">dav1lex.github.io</p>
-        <p className="font-mono text-xs text-muted mb-3.5">omer ugur — ai / tts / scraping / reversing</p>
+        <p className="font-mono text-xs text-muted mb-3.5">omer ugur - ai / tts / scraping / reversing</p>
         <nav className="flex gap-4 font-mono text-[13px]">
           <a href="#" className="text-muted hover:text-link-hover no-underline">home</a>
           <a href="#" className="text-muted hover:text-link-hover no-underline">blog</a>

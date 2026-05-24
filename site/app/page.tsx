@@ -2,7 +2,7 @@ export default function Home() {
   return (
     <>
       <p className="mb-4">
-        i&apos;m omer. i build things — ai agents, tts research, web scrapers,
+        i&apos;m omer. i build things: ai agents, tts research, web scrapers,
         reverse engineering. sometimes all three in one project.
       </p>
       <p className="text-muted">
@@ -20,7 +20,7 @@ export default function Home() {
             tts-research
           </a>
           <span className="text-muted">
-            {" — "}benchmarking emotion, breathiness & prosody in voice cloning
+            {" - "}benchmarking emotion, breathiness & prosody in voice cloning
           </span>
         </p>
         <p>
@@ -28,7 +28,7 @@ export default function Home() {
             aire
           </a>
           <span className="text-muted">
-            {" — "}agent platform with admin panel, olx scraper, live chat
+            {" - "}agent platform with admin panel, olx scraper, live chat
           </span>
         </p>
         <p>
@@ -36,7 +36,7 @@ export default function Home() {
             excalibur
           </a>
           <span className="text-muted">
-            {" — "}auction platform with php, proxy bids, email confirmations
+            {" - "}auction platform with php, proxy bids, email confirmations
           </span>
         </p>
       </div>
