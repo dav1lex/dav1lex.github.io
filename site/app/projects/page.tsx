@@ -35,7 +35,7 @@ const PROJECTS = [
     desc: "independent tts benchmarks - emotion, breathiness, prosody",
     tech: ["python", "praat", "librosa"],
   },
-] as const;
+];
 
 export default function ProjectsPage() {
   return (
