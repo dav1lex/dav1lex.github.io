@@ -1,8 +1,9 @@
-import { getAllPosts } from "@/lib/posts";
+import { getPaginatedPosts } from "@/lib/posts";
 import SceneBlock from "@/components/SceneBlock";
+import Paginator from "@/components/Paginator";
 
 export default function BlogPage() {
-  const posts = getAllPosts();
+  const { posts, totalPages, currentPage } = getPaginatedPosts(1);
 
   return (
     <section>
@@ -18,9 +19,11 @@ export default function BlogPage() {
             date={post.date}
             tags={post.tags}
             title={post.title}
+            body={post.summary}
           />
         ))}
       </div>
+      <Paginator currentPage={currentPage} totalPages={totalPages} />
     </section>
   );
 }

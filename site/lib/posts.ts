@@ -9,10 +9,24 @@ export type PostMeta = {
   title: string;
   date: string;
   tags: string[];
+  summary: string;
 };
 
 function stripMdx(file: string): string {
   return file.replace(/\.mdx$/, "");
+}
+
+/** Grab first non-empty, non-heading paragraph from MDX content. */
+function extractSummary(mdx: string): string {
+  const lines = mdx.split("\n");
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#") || trimmed.startsWith("---")) continue;
+    // Skip import/export statements
+    if (trimmed.startsWith("import ") || trimmed.startsWith("export ")) continue;
+    return trimmed.slice(0, 160);
+  }
+  return "";
 }
 
 export function getAllPosts(): PostMeta[] {
@@ -23,17 +37,36 @@ export function getAllPosts(): PostMeta[] {
     .filter((f) => f.endsWith(".mdx"))
     .map((f) => {
       const raw = fs.readFileSync(path.join(POSTS_DIR, f), "utf-8");
-      const { data } = matter(raw);
+      const { data, content } = matter(raw);
       return {
         slug: stripMdx(f),
         title: data.title || stripMdx(f),
         date: data.date || "",
         tags: data.tags || [],
+        summary: data.summary || extractSummary(content),
       } satisfies PostMeta;
     })
     .sort((a, b) => b.date.localeCompare(a.date));
 
   return posts;
+}
+
+export const POSTS_PER_PAGE = 5;
+
+export function getPaginatedPosts(page: number): {
+  posts: PostMeta[];
+  totalPages: number;
+  currentPage: number;
+} {
+  const all = getAllPosts();
+  const totalPages = Math.max(1, Math.ceil(all.length / POSTS_PER_PAGE));
+  const safePage = Math.max(1, Math.min(page, totalPages));
+  const start = (safePage - 1) * POSTS_PER_PAGE;
+  return {
+    posts: all.slice(start, start + POSTS_PER_PAGE),
+    totalPages,
+    currentPage: safePage,
+  };
 }
 
 export function getPost(slug: string): { meta: PostMeta; content: string } | null {
@@ -49,6 +82,7 @@ export function getPost(slug: string): { meta: PostMeta; content: string } | nul
       title: data.title || slug,
       date: data.date || "",
       tags: data.tags || [],
+      summary: data.summary || extractSummary(content),
     },
     content,
   };

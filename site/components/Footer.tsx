@@ -16,14 +16,14 @@ export default function Footer() {
         </a>
         {" · "}
         <a
-          href="https://linkedin.com/in/omerugur"
+          href="https://www.linkedin.com/in/%C3%B6mer-u%C4%9Fur/"
           className="text-muted hover:text-link-hover no-underline"
         >
           linkedin
         </a>
         {" · "}
         <a
-          href="mailto:info@titancode.pl"
+          href="mailto:omertheugur@gmail.com"
           className="text-muted hover:text-link-hover no-underline"
         >
           mail
@@ -37,7 +37,7 @@ export default function Footer() {
         </Link>
       </p>
       <p className="mt-3 text-[#444] text-[11px]">
-        no js required · no cookies · no trackers · no bullshit
+        no cookies · no trackers · no bullshit
       </p>
     </footer>
   );
