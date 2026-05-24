@@ -132,8 +132,7 @@ body {
   border: 1px solid var(--color-rule);
 }
 
-/* ---- light theme (not active) ---- */
-/*
+/* ---- light theme ---- */
 :root[data-theme="light"] {
   --color-bg: #fafafa;
   --color-text: #1a1a1a;
@@ -144,4 +143,3 @@ body {
   --color-rule: #e0e0e0;
   --color-block: #f0f0f0;
 }
-*/

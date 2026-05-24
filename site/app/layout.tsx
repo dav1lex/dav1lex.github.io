@@ -15,6 +15,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full antialiased">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="light")document.documentElement.dataset.theme=t;else document.documentElement.removeAttribute("data-theme")}catch(e){}})()`,
+          }}
+        />
+      </head>
       <body className="min-h-full bg-bg text-text font-[Georgia,Times_New_Roman,serif]">
         <div className="max-w-2xl mx-auto px-5 py-16">
           <Header />
