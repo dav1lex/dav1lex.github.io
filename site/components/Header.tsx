@@ -24,11 +24,8 @@ export default function Header() {
       <pre className="font-mono text-[6px] text-accent leading-[1.1] mb-3.5">
         {" ▄▄▄▄     ▄▄   ▄    ▄ ▄▄▄    ▄      ▄▄▄▄▄▄ ▄    ▄\n █   ▀▄   ██   ▀▄  ▄▀   █    █      █       █  █\n █    █  █  █   █  █    █    █      █▄▄▄▄▄   ██\n █    █  █▄▄█   ▀▄▄▀    █    █      █       ▄▀▀▄\n █▄▄▄▀  █    █   ██   ▄▄█▄▄  █▄▄▄▄▄ █▄▄▄▄▄ ▄▀  ▀▄"}
       </pre>
-      <p className="font-mono text-[15px] text-text mb-1">
-        dav1lex.github.io
-      </p>
       <p className="font-mono text-xs text-muted mb-3.5">
-        ömer uğur - i break things
+        ömer uğur - floppy disks to serverless
       </p>
       <nav className="flex flex-wrap gap-4 font-mono text-[13px]">
         {NAV.map(({ label, href }) => (

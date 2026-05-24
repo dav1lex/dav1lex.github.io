@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="font-mono text-xs text-muted leading-[1.8] mt-12">
       <p className="mb-2">
         ömer uğur{" "}
-        <span className="text-accent">//</span> i break things
+        <span className="text-accent">//</span> floppy disks to serverless
       </p>
       <p>
         <a

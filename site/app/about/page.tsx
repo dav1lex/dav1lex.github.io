@@ -5,24 +5,14 @@ export default function AboutPage() {
 
       <div className="space-y-4 text-[15px] leading-[1.7]">
         <p>
-          i&apos;m omer. made in turkey, forged in poland.
+          i&apos;m omer. made in turkey, based in poland. i work
+          across the stack — from frontends to ai agents to scraping at
+          scale. i care about things that actually ship.
         </p>
 
         <p>
-          i build things that work. scrapers, agents, apis, frontends.
-          whatever gets the job done. i don&apos;t chase the hype -
-          i chase what ships.
-        </p>
-
-        <p>
-          breaking things is how i learn. i break production, fix it,
-          and remember forever. if i haven&apos;t crashed your stack
-          on a friday night, i probably wasn&apos;t interested.
-        </p>
-
-        <p>
-          corps want meetings about tickets about deadlines. i want a
-          terminal and a problem. no bullshit, just ship.
+          this site is where i write about projects, experiments, and
+          whatever i&apos;m currently breaking.
         </p>
       </div>
 

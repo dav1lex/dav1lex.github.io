@@ -5,7 +5,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "ömer uğur",
-  description: "i break things",
+  description: "floppy disks to serverless",
 };
 
 export default function RootLayout({
