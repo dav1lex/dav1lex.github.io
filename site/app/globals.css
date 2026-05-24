@@ -16,6 +16,119 @@ body {
   color: var(--color-text);
 }
 
+/* ── blog post content ── */
+.prose-custom {
+  color: var(--color-text);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* headings */
+.prose-custom h1,
+.prose-custom h2,
+.prose-custom h3,
+.prose-custom h4 {
+  color: var(--color-text);
+  margin: 32px 0 12px;
+  font-weight: inherit;
+}
+.prose-custom h1 { font-size: 19px; border-bottom: 1px solid var(--color-rule); padding-bottom: 8px; }
+.prose-custom h2 { font-size: 17px; }
+.prose-custom h3 { font-size: 16px; }
+.prose-custom h4 { font-size: 15px; }
+
+/* inline */
+.prose-custom p { margin-bottom: 16px; }
+.prose-custom strong { color: var(--color-text); }
+.prose-custom em { font-style: italic; }
+
+/* links */
+.prose-custom a { color: var(--color-link); text-decoration: none; }
+.prose-custom a:hover { color: var(--color-link-hover); text-decoration: underline; }
+
+/* inline code */
+.prose-custom code:not(pre code) {
+  font-family: monospace;
+  font-size: 13px;
+  color: var(--color-accent);
+  background: var(--color-block);
+  padding: 1px 5px;
+}
+
+/* code blocks */
+.prose-custom pre {
+  background: var(--color-block);
+  border: 1px solid var(--color-rule);
+  padding: 14px 16px;
+  margin: 16px 0;
+  overflow-x: auto;
+}
+.prose-custom pre code {
+  font-family: monospace;
+  font-size: 13px;
+  color: var(--color-text);
+  line-height: 1.5;
+  background: none;
+  padding: 0;
+}
+
+/* lists */
+.prose-custom ul,
+.prose-custom ol {
+  margin: 12px 0;
+  padding-left: 22px;
+  color: var(--color-muted);
+}
+.prose-custom li { margin-bottom: 6px; }
+.prose-custom ul > li { list-style: disc; }
+.prose-custom ol > li { list-style: decimal; }
+
+/* blockquote */
+.prose-custom blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding: 8px 16px;
+  margin: 16px 0;
+  color: var(--color-muted);
+  background: var(--color-block);
+}
+
+/* horizontal rule */
+.prose-custom hr {
+  border: none;
+  border-top: 1px solid var(--color-rule);
+  margin: 28px 0;
+}
+
+/* tables */
+.prose-custom table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-family: monospace;
+  font-size: 13px;
+}
+.prose-custom th {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 2px solid var(--color-rule);
+  color: var(--color-text);
+}
+.prose-custom td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--color-rule);
+  color: var(--color-muted);
+}
+.prose-custom tr:last-child td {
+  border-bottom: none;
+}
+
+/* images */
+.prose-custom img {
+  max-width: 100%;
+  margin: 16px 0;
+  border: 1px solid var(--color-rule);
+}
+
 /* ---- light theme (not active) ---- */
 /*
 :root[data-theme="light"] {
