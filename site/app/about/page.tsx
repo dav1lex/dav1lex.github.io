@@ -18,12 +18,6 @@ export default function AboutPage() {
         </p>
 
         <p>
-          the name is davilex. it&apos;s from the dutch studio behind those
-          old knight rider games  -  played them as a kid, started using it
-          as a handle everywhere. it stuck.
-        </p>
-
-        <p>
           i do full-stack web development and AI research. cs grad, but the
           real education was the years online before that. i learned by
           breaking things and reading whatever explained why.
@@ -42,12 +36,13 @@ export default function AboutPage() {
         </p>
 
         <p>
-          this site is personal. it&apos;s not a portfolio. it&apos;s where
-          i think out loud.
+          the name is davilex. it&apos;s from the dutch studio behind those
+          old knight rider games  -  played them as a kid, started using it
+          as a handle everywhere. it stuck.
         </p>
 
         <p>
-          and yeah dude, still learning...
+          and yeah dude, still learning and thinking out loud.
         </p>
       </div>
     </section>
