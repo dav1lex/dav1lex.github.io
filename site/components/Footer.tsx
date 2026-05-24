@@ -17,6 +17,13 @@ export default function Footer() {
         </a>
         {" · "}
         <a
+          href="https://titancode.pl"
+          className="text-muted hover:text-link-hover no-underline"
+        >
+          titancode
+        </a>
+        {" · "}
+        <a
           href={CONTACT.linkedin}
           className="text-muted hover:text-link-hover no-underline"
         >

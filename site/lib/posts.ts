@@ -10,13 +10,18 @@ export type PostMeta = {
   date: string;
   tags: string[];
   summary: string;
+  readingTime: number;
 };
 
 function stripMdx(file: string): string {
   return file.replace(/\.mdx$/, "");
 }
 
-/** Grab first non-empty, non-heading paragraph from MDX content. */
+/** ~200 words per minute, minimum 1 min. */
+function calcReadingTime(text: string): number {
+  const words = text.trim().split(/\s+/).length;
+  return Math.max(1, Math.ceil(words / 200));
+}
 function extractSummary(mdx: string): string {
   const lines = mdx.split("\n");
   for (const line of lines) {
@@ -44,6 +49,7 @@ export function getAllPosts(): PostMeta[] {
         date: data.date || "",
         tags: data.tags || [],
         summary: data.summary || extractSummary(content),
+        readingTime: calcReadingTime(content),
       } satisfies PostMeta;
     })
     .sort((a, b) => b.date.localeCompare(a.date));
@@ -83,7 +89,24 @@ export function getPost(slug: string): { meta: PostMeta; content: string } | nul
       date: data.date || "",
       tags: data.tags || [],
       summary: data.summary || extractSummary(content),
+      readingTime: calcReadingTime(content),
     },
     content,
   };
+}
+
+/** Get related posts by shared tags, excluding the current post. */
+export function getRelatedPosts(slug: string, limit = 3): PostMeta[] {
+  const post = getPost(slug);
+  if (!post) return [];
+  const all = getAllPosts().filter((p) => p.slug !== slug);
+  const scored = all.map((p) => ({
+    post: p,
+    score: p.tags.filter((t) => post.meta.tags.includes(t)).length,
+  }));
+  return scored
+    .filter((s) => s.score > 0)
+    .sort((a, b) => b.score - a.score || b.post.date.localeCompare(a.post.date))
+    .slice(0, limit)
+    .map((s) => s.post);
 }

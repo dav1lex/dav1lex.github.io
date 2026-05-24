@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dav1lex.titancode.pl/sitemap.xml

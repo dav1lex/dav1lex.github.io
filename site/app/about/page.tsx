@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import { CONTACT } from "@/lib/contact";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Ömer Uğur — full-stack developer based in Poland. Made in Turkey, forged in Poland. Building AI agents, TTS research, scraping at scale.",
+};
 
 export default function AboutPage() {
   return (

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- body -->
+  <rect x="2" y="4" width="28" height="26" rx="1" fill="#5a7a3a"/>
+  <!-- metal slider -->
+  <rect x="2" y="1" width="20" height="6" rx="1" fill="#8ab84a"/>
+  <!-- top cutout -->
+  <rect x="25" y="4" width="5" height="12" rx="0.5" fill="#0d0d0d"/>
+  <!-- label -->
+  <rect x="8" y="14" width="16" height="12" fill="#e0e0e0" opacity="0.15"/>
+  <!-- horizontal line on label -->
+  <line x1="10" y1="18" x2="22" y2="18" stroke="#0d0d0d" stroke-width="1" opacity="0.2"/>
+</svg>

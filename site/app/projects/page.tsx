@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "Projects by Ömer Uğur: AI real estate platform, voice AI, browser extensions, TTS research, and more.",
+};
+
 const PROJECTS = [
   {
     name: "airea.world",

@@ -35,7 +35,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggle}
-      className="text-muted hover:text-link-hover no-underline bg-transparent border-none cursor-pointer font-mono text-[13px] p-0"
+      className="ml-auto text-muted hover:text-link-hover no-underline bg-transparent border-none cursor-pointer font-mono text-[13px] p-0"
     >
       {theme === "dark" ? "light" : "dark"}
     </button>
