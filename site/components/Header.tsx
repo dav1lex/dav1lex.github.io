@@ -21,8 +21,8 @@ export default function Header() {
 
   return (
     <header className="border border-rule bg-block p-5 mb-8">
-      <pre className="font-mono text-[11px] text-accent leading-[1.3] mb-3.5">
-        {"    ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄\n    █ █▀▀ █ █ █▀▀ █▀▀█     █\n    █ █▀▀ █ █ █▀▀ █▄▄▀     █\n    █ ▀▀▀ ▀▀▀ ▀▀▀ ▀ ▀     █\n    ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀"}
+      <pre className="font-mono text-[6px] text-accent leading-[1.1] mb-3.5">
+        {" ▄▄▄▄     ▄▄   ▄    ▄ ▄▄▄    ▄      ▄▄▄▄▄▄ ▄    ▄\n █   ▀▄   ██   ▀▄  ▄▀   █    █      █       █  █\n █    █  █  █   █  █    █    █      █▄▄▄▄▄   ██\n █    █  █▄▄█   ▀▄▄▀    █    █      █       ▄▀▀▄\n █▄▄▄▀  █    █   ██   ▄▄█▄▄  █▄▄▄▄▄ █▄▄▄▄▄ ▄▀  ▀▄"}
       </pre>
       <p className="font-mono text-[15px] text-text mb-1">
         dav1lex.github.io
@@ -30,7 +30,7 @@ export default function Header() {
       <p className="font-mono text-xs text-muted mb-3.5">
         ömer uğur - i break things
       </p>
-      <nav className="flex gap-4 font-mono text-[13px]">
+      <nav className="flex flex-wrap gap-4 font-mono text-[13px]">
         {NAV.map(({ label, href }) => (
           <Link
             key={href}
