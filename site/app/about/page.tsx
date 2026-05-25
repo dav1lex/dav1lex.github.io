@@ -13,7 +13,7 @@ export default function AboutPage() {
 
       <div className="space-y-4 text-[15px] leading-[1.7]">
         <p>
-          i&apos;m omer. born in istanbul, living in warsaw for the past
+          i&apos;m omer. made in turkey, istanbul, forged in poland, warsaw for the past
           seven years. somewhere between the two  -  not quite either anymore.
         </p>
 
@@ -25,7 +25,7 @@ export default function AboutPage() {
 
         <p>
           the work right now is web apps and AI agents  -  building systems
-          that actually do something, not demos. i write about what i&apos;m
+          that actually do something. i write about what i&apos;m
           working on, what didn&apos;t work, and occasionally what i think.
         </p>
 
@@ -42,7 +42,7 @@ export default function AboutPage() {
         </p>
 
         <p>
-          and yeah dude, still learning and thinking out loud.
+          and yeah dude, still learning...
         </p>
       </div>
     </section>
