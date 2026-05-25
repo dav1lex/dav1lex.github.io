@@ -3,7 +3,23 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Ömer Uğur  -  full-stack developer based in Poland. Made in Turkey, forged in Poland. Building AI agents, TTS research, scraping at scale.",
+    "Ömer Uğur - full-stack developer based in Poland. Made in Turkey, forged in Poland. Building AI agents, TTS research.",
+  alternates: {
+    canonical: "https://dav1lex.titancode.pl/about",
+  },
+  openGraph: {
+    title: "About | Ömer Uğur",
+    description:
+      "Ömer Uğur - full-stack developer based in Poland. Made in Turkey, forged in Poland.",
+    url: "https://dav1lex.titancode.pl/about",
+    type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary",
+    title: "About | Ömer Uğur",
+    description: "Full-stack developer. Made in Turkey, forged in Poland.",
+  },
 };
 
 export default function AboutPage() {

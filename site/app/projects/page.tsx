@@ -4,6 +4,23 @@ export const metadata: Metadata = {
   title: "Projects",
   description:
     "Projects by Ömer Uğur: AI real estate platform, voice AI, browser extensions, TTS research, and more.",
+  alternates: {
+    canonical: "https://dav1lex.titancode.pl/projects",
+  },
+  openGraph: {
+    title: "Projects | Ömer Uğur",
+    description:
+      "Projects by Ömer Uğur: AI real estate platform, voice AI, browser extensions, TTS research, and more.",
+    url: "https://dav1lex.titancode.pl/projects",
+    type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary",
+    title: "Projects | Ömer Uğur",
+    description:
+      "AI real estate, voice AI, browser extensions, TTS research. Built by Ömer Uğur.",
+  },
 };
 
 const PROJECTS = [

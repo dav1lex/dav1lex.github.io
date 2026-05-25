@@ -29,7 +29,7 @@ function extractSummary(mdx: string): string {
     if (!trimmed || trimmed.startsWith("#") || trimmed.startsWith("---")) continue;
     // Skip import/export statements
     if (trimmed.startsWith("import ") || trimmed.startsWith("export ")) continue;
-    return trimmed.slice(0, 160);
+    return trimmed.slice(0, 155);
   }
   return "";
 }

@@ -7,11 +7,22 @@ export const metadata: Metadata = {
   title: "Blog",
   description:
     "Articles on AI agents, TTS research, voice cloning benchmarks, web scraping, and reverse engineering by Ömer Uğur.",
+  alternates: {
+    canonical: "https://dav1lex.titancode.pl/blog",
+  },
   openGraph: {
     title: "Blog | Ömer Uğur",
     description:
       "Articles on AI agents, TTS research, voice cloning, web scraping, and reverse engineering.",
+    url: "https://dav1lex.titancode.pl/blog",
     type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary",
+    title: "Blog | Ömer Uğur",
+    description:
+      "Articles on AI agents, TTS research, voice cloning, web scraping, and reverse engineering.",
   },
 };
 

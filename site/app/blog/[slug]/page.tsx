@@ -29,12 +29,19 @@ export async function generateMetadata({
     openGraph: {
       title: post.meta.title,
       description: post.meta.summary,
+      url: `${SITE}/blog/${slug}`,
       type: "article",
       publishedTime: post.meta.date,
       tags: post.meta.tags,
+      images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     },
     alternates: {
       canonical: `${SITE}/blog/${slug}`,
+    },
+    twitter: {
+      card: "summary",
+      title: post.meta.title,
+      description: post.meta.summary,
     },
   };
 }

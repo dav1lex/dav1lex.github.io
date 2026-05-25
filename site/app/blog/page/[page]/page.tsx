@@ -16,10 +16,27 @@ export async function generateMetadata({
   params: Promise<{ page: string }>;
 }): Promise<Metadata> {
   const { page } = await params;
+  const title = `Blog - Page ${page}`;
+  const desc =
+    "Articles on AI agents, TTS research, voice cloning, web scraping, and reverse engineering.";
   return {
-    title: `Blog  -  Page ${page}`,
-    description:
-      "Articles on AI agents, TTS research, voice cloning, web scraping, and reverse engineering.",
+    title,
+    description: desc,
+    alternates: {
+      canonical: `https://dav1lex.titancode.pl/blog/page/${page}`,
+    },
+    openGraph: {
+      title: `${title} | Ömer Uğur`,
+      description: desc,
+      url: `https://dav1lex.titancode.pl/blog/page/${page}`,
+      type: "website",
+      images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary",
+      title: `${title} | Ömer Uğur`,
+      description: desc,
+    },
     robots: page === "2" && getAllPosts().length <= POSTS_PER_PAGE ? { index: false } : undefined,
   };
 }
