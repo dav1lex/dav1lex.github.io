@@ -1,0 +1,54 @@
+---
+title: "do tts models actually read punctuation?"
+date: "2026-05-25"
+tags: ["tts", "research", "prosody"]
+---
+
+when you write a question mark, does the TTS model raise its pitch at the end? when you use a comma, does it pause longer than an em-dash?
+
+you'd hope so. but hope isn't a benchmark.
+
+## what i did
+
+i designed 28 test utterances across 5 categories:
+
+- **sentence-end**: period vs question mark vs exclamation point
+- **pause hierarchy**: comma vs em-dash vs ellipsis vs semicolon
+- **quotation**: reported speech vs quoted speech
+- **trailing**: ellipsis vs period
+- **capitalization**: ALL-CAPS vs normal vs lowercase
+
+i generated audio with 3 models (Chatterbox, XTTS-v2, Kokoro) using the same VCTK p229 reference voice. then i extracted pause metrics, terminal F0 slope, amplitude decay rate, and overall F0 statistics.
+
+## results
+
+| Model | Question F0 Rise | Pause Hierarchy | Quotation Shift | Trailing |
+|-------|-----------------|-----------------|-----------------|----------|
+| Chatterbox | **+68.5 Hz** (best) | 0.67 | **YES** | wrong direction |
+| XTTS-v2 | -5.0 Hz (none) | **1.00** (perfect) | NO | correct direction |
+| Kokoro | +25.7 Hz | 0.67 | NO | wrong direction |
+
+**the split is clean.** XTTS-v2 dominates temporal cues - it gets pause hierarchy perfect (comma shorter than ellipsis shorter than semicolon) and handles trailing ellipsis correctly - but it completely ignores terminal F0. a question mark produces no pitch rise.
+
+Chatterbox is the opposite. it nails F0-based cues: question rise (+68.5 Hz is a real lift), quotation shifts prosody. but its pause ordering is weak.
+
+no model does both well. F0 sensitivity and pause ordering look like independent abilities - neither implies the other.
+
+![punctuation sensitivity summary across categories](/research/punctuation-summary.png)
+
+## little surprises
+
+- F5-TTS was excluded from this benchmark entirely. its architecture concatenates reference text and generation text internally, causing reference-text bleed into output. not fixable within this paradigm.
+- Kokoro tracks Chatterbox on pause metrics despite being a different architecture and having no voice cloning. suggests pause patterns may be more driven by training data than model architecture.
+- the quotation shift in Chatterbox is subtle but measurable - F0 range shifts by >10 Hz between reported and quoted speech. XTTS just reads them the same.
+
+## limitations
+
+- energy-based VAD is crude - 30ms threshold, no forced alignment
+- F0 extraction (pyin) noisy on very short utterances
+- only 2 items per subcategory, too small for publication
+- Kokoro has no voice cloning, included as no-adaptation baseline
+- quotation detection threshold (10 Hz F0 range shift) is arbitrary
+
+full code and results in the [tts-research repo](https://github.com/dav1lex/tts-research).
+[download the full report (PDF)](https://github.com/dav1lex/tts-research/blob/main/_5-punctuation-sensitivity/results/report.pdf)

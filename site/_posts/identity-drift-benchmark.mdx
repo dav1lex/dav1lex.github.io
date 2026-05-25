@@ -1,0 +1,48 @@
+---
+title: "do tts voices drift over 5 minutes of speech?"
+date: "2026-05-25"
+tags: ["tts", "research", "voice-cloning"]
+---
+
+if you make a TTS model talk for 5 minutes straight, does the voice drift away from the original? does it start sounding like someone else by minute 5?
+
+i built a benchmark to find out.
+
+## what i did
+
+i generated 5-minute monologues from 3 models (Chatterbox, XTTS-v2, Kokoro) using the same 868-word narrative text. same reference voice (VCTK p229) as the earlier papers.
+
+i sliced each into 15-second windows and measured acoustic features per window: pitch (pyin), breathiness (Praat CPP), spectral features, MFCCs, RMS loudness, spectral centroid. then i measured drift as the IQR-scaled Euclidean distance from the reference clip across time.
+
+## results
+
+| Model | Drift Mean | Drift Increase | Drift Slope |
+|-------|-----------|----------------|-------------|
+| Chatterbox | 0.491 | +0.080 | +0.00422 |
+| XTTS-v2 | 0.583 | +0.076 | +0.00431 |
+| Kokoro | 1.290 | +0.070 | +0.00473 |
+
+**all three models drift.** the rate is suspiciously similar across all of them (~0.004 per 15-second window). this could mean drift is a fundamental property of long-form generation - or it could mean my test text was too structurally uniform to stress models differently. that's a real methodological limitation.
+
+**Chatterbox starts closest** to the reference (mean 0.491) but drifts the fastest (+0.080 increase). XTTS-v2 starts a bit further (0.583) but is more erratic. Kokoro isn't trying to clone the voice - it's the no-adaptation baseline at 1.290.
+
+**breathiness is the least stable channel.** for both voice-cloning models, CPP (breathiness) drift exceeded pitch drift. the texture of the voice degrades faster than the pitch. this connects directly to the breathiness benchmark finding - breathiness was the hardest feature to preserve in short-form cloning, and now it's also the fastest to drift over time.
+
+![drift over time for all 3 models](/research/drift-over-time.png)
+
+## little surprises
+
+- XTTS-v2 had 3 windows with audio clipping (signal hits max amplitude), which may explain its high RMS drift (1.135 vs Chatterbox's 0.286).
+- Chatterbox had to be generated in 10 chunks of ~100 words due to CUDA context limits - chunk boundaries could introduce artifacts not present in continuous generation.
+- the near-identical drift slopes across all three models is suspicious enough to call out as a likely confound of text homogeneity.
+
+## limitations
+
+- single continuous narrative text - real speech has dialogue, questions, lists, emotional shifts
+- 5 minutes may be too short for perceptible drift
+- Euclidean distance in feature space is not validated against human perception
+- single-listener check only, no formal ABX test
+- only one reference speaker tested
+
+full code and results in the [tts-research repo](https://github.com/dav1lex/tts-research).
+[download the full report (PDF)](https://github.com/dav1lex/tts-research/blob/main/_4-identity-drift/results/report.pdf)
