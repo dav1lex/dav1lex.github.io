@@ -6,6 +6,8 @@ import rehypePrismPlus from "rehype-prism-plus";
 import { getAllPosts, getPost, getRelatedPosts } from "@/lib/posts";
 import Link from "next/link";
 import { formatDate } from "@/lib/utils";
+import AudioPlayer from "@/components/AudioPlayer";
+import ZoomableImage from "@/components/ZoomableImage";
 
 const SITE = "https://dav1lex.titancode.pl";
 
@@ -57,6 +59,7 @@ export default async function PostPage({
 
   const { content } = await compileMDX({
     source: post.content,
+    components: { AudioPlayer, img: ZoomableImage, ZoomableImage },
     options: {
       parseFrontmatter: false,
       mdxOptions: {

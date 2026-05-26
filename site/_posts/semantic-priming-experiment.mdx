@@ -1,0 +1,85 @@
+---
+title: "does prior context leak into tts prosody?"
+date: "2026-05-26"
+tags: ["tts", "research", "prosody", "psycholinguistics"]
+---
+
+you give a tts model a sad paragraph to read. then you ask it to say a boring business sentence. does the sadness stick to the voice?
+
+i wanted to find out.
+
+## what i did
+
+same target sentence, 4 conditions, 3 models.
+
+the sentence: *"the quarterly figures were reviewed and submitted before the deadline."* boring. neutral. 10 words.
+
+the conditions:
+
+- **cold**: just the sentence. nothing before it.
+- **primed_neutral**: boring office paragraph, then the sentence.
+- **primed_owl**: owl facts paragraph (neutral tone, cool animal), then the sentence.
+- **primed_death**: funeral paragraph (negative tone, grief), then the sentence.
+
+the idea: if neutral, owl, and death all push prosody in different directions, that's real semantic priming. if they all push the same way, it's just "there was text before" doing the work.
+
+5 reps per condition per model. 60 clips total. then i used a vad pause detector to chop out only the target sentence from the primed clips. the full wav has the prime paragraph in it so of course it sounds different. that's not priming. that's just two different texts. the whole trick is: does the exact same sentence change after different context?
+
+i measured 8 features: f0 mean, f0 std, f0 range, speech rate, pause count, pause duration, rms energy, spectral centroid.
+
+<AudioPlayer src="/research/kokoro-cold.mp3" label="Kokoro Cold" sublabel="no context, standalone sentence" />
+
+<AudioPlayer src="/research/kokoro-death.mp3" label="Kokoro Death" sublabel="funeral paragraph before the same sentence" />
+
+same words. different voice. slower, higher pitched, longer pauses. the model's attention carried the funeral into a quarterly report.
+
+## results
+
+| Model | F0 Mean (ANOVA) | Speech Rate (ANOVA) | Significant Features |
+|-------|-----------------|---------------------|----------------------|
+| Chatterbox | p = 0.4637 (no) | p = 0.9490 (no) | **0/8** |
+| XTTS-v2 | p = 0.1288 (no) | p = 0.2961 (no) | **0/8** |
+| Kokoro | p < 0.0001 (**yes**) | p < 0.0001 (**yes**) | **8/8** |
+
+clean sweep. kokoro leaks context into every feature. the other two leak nothing. two models are walled gardens. one is an open window.
+
+### inside kokoro
+
+| Condition | F0 Mean (Hz) | Speech Rate (w/s) | Pause Count | Pause Duration (s) |
+|-----------|-------------|-------------------|-------------|-------------------|
+| Cold | **190.0** (±0.3) | **14.5** (±0.6) | 3.0 | 0.59 |
+| Primed Neutral | 207.6 (±1.8) | 9.6 (±0.1) | 1.0 | 0.83 |
+| Primed Owl | 196.0 (±0.4) | 9.5 (±0.2) | 1.0 | 0.85 |
+| Primed Death | 205.0 (±0.1) | 9.7 (±0.1) | 1.0 | 0.84 |
+
+when kokoro sees any paragraph first: pitch jumps ~15hz, speed drops 34%, pauses get fewer but longer. it rethinks how to say the same damn sentence.
+
+but check the primed rows against each other. neutral, owl, death. they all sound kinda the same. the giant gap is cold vs anything. the model cares that something was there before. it does not care much what that something was. binary switch, not a dial.
+
+<ZoomableImage src="/research/semantic-kokoro-detail.png" alt="kokoro feature detail across conditions" caption="kokoro's speech rate, pause count, and f0 range across all 4 conditions" />
+
+<ZoomableImage src="/research/semantic-f0-mean.png" alt="F0 mean by condition per model" caption="kokoro f0 mean: cold (190 hz) vs any prime (196 to 208 hz). chatterbox and xtts flat across the board." />
+
+## stuff i didnt expect
+
+**kokoro is a deterministic robot and that makes everything look huge.** in the cold condition, f0 std across 5 reps is 0.28 hz. that's not normal. it says the sentence the exact same way every single time. so when you add context and it shifts by 15 hz, the stats go nuclear. f = 369, eta squared = 0.986. those are silly numbers. they come from the model having no variation, not from the context effect being massive. dont read them as real world effect sizes.
+
+**split_pattern=none saved the whole experiment.** kokoro defaults to splitting text on newlines. so "paragraph\n\ntarget sentence" becomes two independent utterances with zero cross attention between them. there is no priming test possible under that setting. i passed `split_pattern=None` to keep it as one chunk so the transformer sees the full phoneme sequence. without this one line, kokoro would have scored 0/8 like the others and this post wouldn't exist.
+
+**chatterbox won the last two benchmarks and lost this one.** it crushed the punctuation sensitivity test and the emotion channel test. but here, at n=5, the noise between repetitions was bigger than any context signal. doesn't mean priming is zero. just means 5 reps is not enough to catch it for this model.
+
+**xtts was equally blind but for different reasons.** speech rate variance inside one condition was sd = 4.3 words per second. that's almost as big as the cold mean itself. the model output is just noisy. you can't detect small shifts when the baseline is all over the place.
+
+## limitations
+
+- n=5 is tiny. one weird rep can flip everything.
+- single sentence. maybe this sentence is weird. maybe others behave different.
+- vad chopping is energy based, no forced alignment. segments might not be exact.
+- kokoro's zero variance inflates p values. those 0.0000's are real but exaggerated.
+- the owl paragraph has different words than the death paragraph. different phonemes, different syllable counts. we're confounded. is it semantics or just different sounds bleeding in?
+- no human listening test. no abx. just acoustics.
+- kokoro uses af_bella voice. the other two use vctk p229. cross model comparison is dirty.
+- 144 pairwise tests with bonferroni. type i error says hi.
+
+full code and results in the [tts-research repo](https://github.com/dav1lex/tts-research).
+[download the full report (PDF)](https://github.com/dav1lex/tts-research/blob/main/_6-owl-semantic-priming/results/report.pdf)
