@@ -1,0 +1,141 @@
+---
+title: "does reading numbers break tts prosody?"
+date: "2026-05-28"
+tags: ["tts", "research", "prosody", "replication"]
+---
+
+you give a tts model a robotic list of numbers. then you ask it to deliver an emotional sentence. does the flatness bleed through?
+
+i wanted to find out. so did a skeptical colleague. so i ran the experiment twice.
+
+## the intuition
+
+tts models don't process sentences in isolation. they carry acoustic context across the generation window. the model "remembers" how it was speaking before. encoder states, style embeddings, raw acoustic conditioning. all of it bleeds forward.
+
+so the question: **if you feed numbers into the same context window as emotional speech, does the monotony infect the emotion?**
+
+i called it the "subliminal hangover." not because it's subliminal. the prime is fully audible. but because it's an unintended context effect the user didn't ask for.
+
+hypothesis: `f0_cv(emotional target | number prime) < f0_cv(emotional target | noun prime)`. that is, a robotic prime flattens the pitch variation of whatever comes after. speaking rate held constant so we know it's pitch, not tempo.
+
+## pilot (_7): a signal, not an answer
+
+single emotional target sentence. 5 repetitions. 3 models (Chatterbox, XTTS-v2, Kokoro). 45 wavs total.
+
+the prime: 14 comma-separated digit strings (`847, 23, 5091, 312, ...`). the control: 14 length-matched nouns (`apple, bridge, window, carpet, ...`). primes and target generated together as one string, then whisperx v3 word alignment slices out just the target segment for measurement.
+
+| Model | f0_cv drop | p | Rate stable |
+|-------|-----------|----|-------------|
+| Chatterbox | -39% | 0.031 | yes |
+| XTTS-v2 | -29% | 0.094 | yes |
+| Kokoro | -13% | 0.22 | borderline |
+
+chatterbox showed clean pitch compression with stable speaking rate. exciting. two acoustic phenotypes emerged: pitch compression in Chatterbox and XTTS, tempo acceleration in Kokoro.
+
+but the flaws were structural, not cosmetic:
+
+- **n=5 Wilcoxon has no power.** you can only get significance with near-perfect orderings. the Chatterbox result was one of three possible significant outcomes.
+- **single target sentence.** maybe that sentence was weird. can't generalize.
+- **no pre-registration.** classic HARKing risk.
+- **seed handling undocumented.** if noun and number conditions shared a seed, artifacts drive spurious differences.
+- **mixed effects needed.** Wilcoxon can't handle random effects for target and repetition.
+
+the signal was real enough to justify a real experiment. but it wasn't an answer. a colleague (Kacper Wikiel) called it: interesting, but not convincing. he was right.
+
+## replication (_8): the real thing
+
+i locked the protocol in `PROTOCOL.md` before generating a single wav. no more cowboy analysis.
+
+design: 10 emotional targets (angry/indignant, 5-18 syllables), 10 repetitions each, 3 models, 2 conditions (noun vs number prime). 600 wavs total.
+
+what changed from the pilot:
+
+- **manifest-driven generation.** every wav is a row in `manifest_all.csv` with exact text, seed, condition, output path. no ad-hoc anything. the manifest *is* the experimental design.
+- **seed independence enforced.** number gets offset +100, noun gets offset +200 from base seed. a scan confirmed 0/100 identical noun-number pairs.
+- **Kokoro determinism preflight.** 5 reps, different seeds. result: different sha-256 hashes, f0_cv range 0.195-0.211, identical durations. near-deterministic but enough variation for inclusion.
+- **mixed-effects models.** `f0_cv ~ condition + (1 | target_id) + (1 | repetition)` via `statsmodels.MixedLM`. effect sizes with 95% CIs, not just p-values.
+- **append-mode extraction.** the pipeline checks existing rows by ID and skips processed files. crucial when you're generating 600 wavs across multiple days.
+
+![speaking rate distribution by condition and model](/research/subliminal-tempo-distribution.png)
+
+## the result: tempo, not pitch
+
+### primary finding: tempo acceleration
+
+`speaking_rate ~ condition_num + (1 | target_id) + (1 | repetition)`, n=594:
+
+| Model | Speedup (syll/s) | 95% CI | p |
+|-------|-----------------|--------|---|
+| Kokoro | +1.36 | [+1.16, +1.56] | 1.5e-40 |
+| XTTS-v2 | +0.70 | [+0.39, +1.02] | 1e-05 |
+| Chatterbox | +0.35 | [+0.10, +0.60] | 0.006 |
+
+**all three models speed up after reading numbers.** all CIs exclude zero. this is not subtle. Kokoro adds over 1.3 syllables per second. on a 4-second sentence, that's the difference between someone with time to think and someone speed-reading.
+
+this is the universal signal. the pilot had it too. Kokoro borderline, XTTS numerically present. but it was treated as secondary. it's primary.
+
+![f0_cv distribution by condition and model](/research/subliminal-f0cv-distribution.png)
+
+### secondary finding: pitch compression
+
+`f0_cv ~ condition_num + (1 | target_id) + (1 | repetition)`:
+
+| Model | f0_cv change | 95% CI | p | Verdict |
+|-------|-------------|--------|---|---------|
+| Kokoro | -0.045 | [-0.061, -0.029] | 2.1e-08 | **confirmed** |
+| Chatterbox | -0.006 | [-0.031, +0.020] | 0.668 | null |
+| XTTS-v2 | -0.004 | [-0.030, +0.022] | 0.762 | null |
+
+kokoro flattens its pitch after numbers. the other two don't.
+
+## the pilot was wrong
+
+_7 found pitch compression in Chatterbox (-39%, p=0.031) and XTTS (-29%), and tempo acceleration in Kokoro. _8 flipped this: **tempo acceleration is universal, pitch compression is Kokoro-specific.**
+
+three possibilities for the missing Chatterbox pitch compression, not mutually exclusive:
+
+1. **target-specific.** the single _7 target might have been unusually sensitive. 10 diverse targets average it out.
+2. **seed coupling inflated _7 effect.** if noun and number shared a seed, artifacts drive spurious paired differences at n=5.
+3. **pilot was a false positive.** the one significant outcome at n=5 is fragile. could be noise.
+
+we can't tell which. the honest answer: we don't know. this is what replication is for.
+
+## why Kokoro?
+
+Kokoro doesn't do voice cloning. it uses fixed speaker embeddings. its prosodic control may be more globally coupled. the whole generation pipeline responds to acoustic state as a unit. cloning-based architectures (Chatterbox, XTTS) condition on speaker embeddings for pitch range and may be more resilient to pitch carryover while still susceptible to rhythm bleed.
+
+or maybe the opposite: Kokoro has less prosodic flexibility, so it gets "stuck" in the flat mode longer, while cloning models recover faster. we don't know the mechanism. we just know the phenotype.
+
+## stuff i didn't expect
+
+**the hangover is about rhythm more than pitch.** the original hypothesis was flat primes means flat targets. but the strongest signal is tempo. the robotic prime changes the model's internal sense of pace, and that change persists into emotional speech. different mechanism from what i hypothesized.
+
+**manifest-driven is the only way to do multi-day tts experiments.** 600 wavs across 3 models means generating in batches. without a manifest, every restart means reconstructing parameters from memory. with a manifest, the csv *is* the experiment. append-mode extraction means you can extract features as you go. game-changer.
+
+**gate checks catch real garbage.** 593 of 594 files passed gate (f0 in range, duration above minimum, speaking rate plausible). the one failure was XTTS producing 0.65 syllables/second. implausibly slow. without the gate, that garbage goes into the mixed model and subtly pollutes everything.
+
+**kokoro is a deterministic robot and that limits its statistical contribution.** identical durations across 5 preflight reps. near-zero between-rep f0_cv variance in many conditions. each "repetition" provides less independent information than a Chatterbox rep. the model doesn't vary much, so your n=10 is effectively smaller.
+
+**perth watermarker patch.** Chatterbox's internal `PerthImplicitWatermarker` crashes on import in some environments. our generation script monkey-patches it to a dummy before importing the TTS class. without this one line, half the pipeline fails before it starts.
+
+**two-phenotype discovery from the pilot was real.** _7 correctly identified pitch compression and tempo acceleration as distinct acoustic outcomes. it just got the model-to-phenotype mapping wrong because n=5 scatter is noisy. the signal was real. the categorization failed.
+
+## practical fix
+
+if you're building an audiobook pipeline and generate chapter headings in the same context window as emotional narration, you're bleeding tempo. virtual agent reads a product code, then delivers empathetic customer service. the code infects the empathy.
+
+the fix isn't complicated: **generate robotic segments and emotional speech in separate context windows, stitch the audio afterward.** same model, same voice, no bleed.
+
+this isn't a fundamental tts flaw. it's a context-window management detail that every pipeline engineer building emotionally-sensitive applications should know.
+
+## limitations
+
+- **no perceptual validation.** everything is acoustic. we don't know if listeners can hear +0.35 syllables/second. an ABX listening test would answer whether the measured effects cross the perceptual threshold.
+- **single voice per model.** Kokoro uses `af_bella`, Chatterbox and XTTS use VCTK p229. 3-5 diverse speaker embeddings per model needed to check if hangover is model or voice property.
+- **single emotional valence.** all 10 targets were angry/indignant. sad, happy, neutral, and fearful might interact differently.
+- **digit strings only.** spelled-out numbers ("eight hundred forty seven") would isolate whether it's digit rhythm or semantics of counting driving the tempo effect.
+- **convergence warning on Chatterbox speaking_rate model.** optimizer hit boundary. coefficient direction (+0.35) and significance (p=0.006) consistent across attempts, but estimate should carry caveat.
+- **kokoro split_pattern.** defaults to splitting on newlines. had to pass `split_pattern=None` to keep prime+target as one chunk. without this, the transformer never sees the prime at all and you measure nothing.
+
+full code and results in the [tts-research repo](https://github.com/dav1lex/tts-research).
+[download the combined report (PDF)](https://github.com/dav1lex/tts-research/blob/main/_8-subliminal-hangover-v4/results/combined_report.pdf).
