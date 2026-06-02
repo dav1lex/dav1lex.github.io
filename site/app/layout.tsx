@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s | Ömer Uğur",
   },
   description:
-    "Personal site of Ömer Uğur. Full-stack developer, AI agent builder, TTS researcher. Based in Poland. Writing about code, voice cloning, scraping, and reverse engineering.",
+    "Independent TTS benchmarks (voice drift, breathiness, identity collapse) plus AI agents, scraping systems, and what breaks at scale. Personal site of Ömer Uğur, full-stack developer based in Poland.",
   openGraph: {
     siteName: "Ömer Uğur",
     locale: "en_US",
@@ -21,7 +21,11 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: "/favicon.svg",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/favicon.svg",
   },
 };
 

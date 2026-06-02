@@ -6,23 +6,24 @@ import Paginator from "@/components/Paginator";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Articles on AI agents, TTS research, voice cloning benchmarks, web scraping, and reverse engineering by Ömer Uğur.",
+    "Notes from building in public: independent TTS benchmarks (voice drift, breathiness, identity loss), AI agents in production, scraping systems, and the things that break at scale.",
   alternates: {
     canonical: "https://dav1lex.titancode.pl/blog",
   },
   openGraph: {
     title: "Blog | Ömer Uğur",
     description:
-      "Articles on AI agents, TTS research, voice cloning, web scraping, and reverse engineering.",
+      "TTS benchmarks, AI agents in production, scraping systems, reverse engineering. What breaks and why.",
     url: "https://dav1lex.titancode.pl/blog",
     type: "website",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Blog | Ömer Uğur",
     description:
-      "Articles on AI agents, TTS research, voice cloning, web scraping, and reverse engineering.",
+      "TTS benchmarks, AI agents, scraping at scale, reverse engineering. Field notes from shipping.",
+    images: ["/og-image.png"],
   },
 };
 

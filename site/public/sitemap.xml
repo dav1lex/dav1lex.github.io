@@ -39,6 +39,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dav1lex.titancode.pl/blog/interrogation-bench</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dav1lex.titancode.pl/blog/prosody-transfer-benchmark</loc>
     <lastmod>2026-05-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -47,6 +53,18 @@
   <url>
     <loc>https://dav1lex.titancode.pl/blog/punctuation-sensitivity-benchmark</loc>
     <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dav1lex.titancode.pl/blog/semantic-priming-experiment</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dav1lex.titancode.pl/blog/subliminal-hangover</loc>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

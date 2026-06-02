@@ -7,6 +7,24 @@
     <language>en</language>
     <atom:link href="https://dav1lex.titancode.pl/rss.xml" rel="self" type="application/rss+xml"/>
         <item>
+      <title>can ai keep a secret? i built an interrogation bench to find out</title>
+      <link>https://dav1lex.titancode.pl/blog/interrogation-bench</link>
+      <guid>https://dav1lex.titancode.pl/blog/interrogation-bench</guid>
+      <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>does reading numbers break tts prosody?</title>
+      <link>https://dav1lex.titancode.pl/blog/subliminal-hangover</link>
+      <guid>https://dav1lex.titancode.pl/blog/subliminal-hangover</guid>
+      <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>does prior context leak into tts prosody?</title>
+      <link>https://dav1lex.titancode.pl/blog/semantic-priming-experiment</link>
+      <guid>https://dav1lex.titancode.pl/blog/semantic-priming-experiment</guid>
+      <pubDate>Tue, 26 May 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>do tts voices drift over 5 minutes of speech?</title>
       <link>https://dav1lex.titancode.pl/blog/identity-drift-benchmark</link>
       <guid>https://dav1lex.titancode.pl/blog/identity-drift-benchmark</guid>
