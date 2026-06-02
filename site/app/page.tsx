@@ -7,14 +7,14 @@ import BlinkCursor from "@/components/BlinkCursor";
 export const metadata: Metadata = {
   title: "Ömer Uğur - Full-Stack Developer & Tinkerer",
   description:
-    "Independent TTS benchmarks measuring what vendors won't publish: voice drift over 5+ min, breathiness preservation, emotion control, identity collapse. Plus AI agents, scraping systems, and what breaks when you ship them.",
+    "Independent benchmarks on TTS and LLMs measuring what vendors won't publish: voice drift over 5+ min, identity collapse, emotion control, prompt extraction, security. Plus AI agents, scraping systems, and what breaks when you ship them.",
   alternates: {
     canonical: "https://dav1lex.titancode.pl",
   },
   openGraph: {
     title: "Ömer Uğur - Full-Stack Developer & Tinkerer",
     description:
-      "Independent TTS research: voice drift, breathiness, identity collapse. AI agents, scraping, what breaks at scale.",
+      "Independent benchmarks on TTS and LLMs: voice drift, identity collapse, prompt extraction, security. AI agents, scraping, what breaks at scale.",
     url: "https://dav1lex.titancode.pl",
     type: "profile",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ömer Uğur - TTS Research, AI Agents, Scraping",
+    title: "Ömer Uğur - TTS & LLM Research, AI Agents, Scraping",
     description:
-      "Independent TTS benchmarks: voice drift, breathiness, identity collapse over 5+ min. Plus AI agents, scraping, what breaks.",
+      "Independent benchmarks on TTS and LLMs: voice drift, identity collapse, prompt extraction, security. Plus AI agents, scraping, what breaks.",
     images: ["/og-image.png"],
   },
 };
@@ -37,9 +37,9 @@ const jsonLd = {
   name: "Ömer Uğur",
   alternateName: "omer ugur",
   url: "https://dav1lex.titancode.pl",
-  jobTitle: "Full-Stack Developer & TTS Researcher",
+  jobTitle: "Full-Stack Developer & AI Researcher",
   description:
-    "Independent TTS benchmarks: voice drift, breathiness, identity collapse. Plus AI agents, scraping systems, what breaks at scale.",
+    "Independent benchmarks on TTS and LLMs: voice drift, identity collapse, prompt extraction, security. Plus AI agents, scraping systems, what breaks at scale.",
   address: {
     "@type": "PostalAddress",
     addressCountry: "PL",

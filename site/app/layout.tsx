@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s | Ömer Uğur",
   },
   description:
-    "Independent TTS benchmarks (voice drift, breathiness, identity collapse) plus AI agents, scraping systems, and what breaks at scale. Personal site of Ömer Uğur, full-stack developer based in Poland.",
+    "Independent benchmarks on TTS and LLMs — voice drift, identity collapse, prompt extraction, security. Plus AI agents, scraping systems, and what breaks at scale. Personal site of Ömer Uğur, full-stack developer based in Poland.",
   openGraph: {
     siteName: "Ömer Uğur",
     locale: "en_US",

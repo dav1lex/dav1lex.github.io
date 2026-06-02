@@ -6,14 +6,14 @@ import Paginator from "@/components/Paginator";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Notes from building in public: independent TTS benchmarks (voice drift, breathiness, identity loss), AI agents in production, scraping systems, and the things that break at scale.",
+    "Notes from building in public: independent benchmarks on TTS and LLMs — voice drift, identity collapse, prompt extraction, security. Plus AI agents in production, scraping systems, and what breaks at scale.",
   alternates: {
     canonical: "https://dav1lex.titancode.pl/blog",
   },
   openGraph: {
     title: "Blog | Ömer Uğur",
     description:
-      "TTS benchmarks, AI agents in production, scraping systems, reverse engineering. What breaks and why.",
+      "Benchmarks on TTS and LLMs, AI agents in production, scraping systems, reverse engineering. What breaks and why.",
     url: "https://dav1lex.titancode.pl/blog",
     type: "website",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Blog | Ömer Uğur",
     description:
-      "TTS benchmarks, AI agents, scraping at scale, reverse engineering. Field notes from shipping.",
+      "Benchmarks on TTS and LLMs, AI agents, scraping at scale, reverse engineering. Field notes from shipping.",
     images: ["/og-image.png"],
   },
 };

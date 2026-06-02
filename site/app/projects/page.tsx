@@ -3,14 +3,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Production work: AI real estate platform with 8 agents scraping OLX at scale, voice reports for field workers, job-analysis Chrome extension, and the open TTS benchmark suite. Cloudflare-first stack.",
+    "Production work: AI real estate platform with 8 agents scraping OLX at scale, voice reports for field workers, job-analysis Chrome extension, and the open AI benchmark suite for TTS and LLMs. Cloudflare-first stack.",
   alternates: {
     canonical: "https://dav1lex.titancode.pl/projects",
   },
   openGraph: {
     title: "Projects | Ömer Uğur",
     description:
-      "AI real estate (8 agents, OLX scraper, RAG), voice reports for field workers, Chrome extension, open TTS benchmarks.",
+      "AI real estate with 8 agents scraping OLX, voice reports for field workers, Chrome extension, open benchmarks for TTS and LLMs.",
     url: "https://dav1lex.titancode.pl/projects",
     type: "website",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Projects | Ömer Uğur",
     description:
-      "AI real estate with 8 agents, voice reports for field workers, Chrome extension, open TTS benchmarks. Cloudflare-first.",
+      "AI real estate with 8 agents, voice reports, Chrome extension, open benchmarks for TTS and LLMs. Cloudflare-first.",
     images: ["/og-image.png"],
   },
 };
