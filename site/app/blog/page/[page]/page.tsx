@@ -23,12 +23,12 @@ export async function generateMetadata({
     title,
     description: desc,
     alternates: {
-      canonical: `https://dav1lex.titancode.pl/blog/page/${page}`,
+      canonical: `https://dav1lex.github.io/blog/page/${page}`,
     },
     openGraph: {
       title: `${title} | Ömer Uğur`,
       description: desc,
-      url: `https://dav1lex.titancode.pl/blog/page/${page}`,
+      url: `https://dav1lex.github.io/blog/page/${page}`,
       type: "website",
       images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     },

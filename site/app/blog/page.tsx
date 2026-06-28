@@ -8,13 +8,13 @@ export const metadata: Metadata = {
   description:
     "Notes from building in public: independent benchmarks on TTS and LLMs — voice drift, identity collapse, prompt extraction, security. Plus AI agents in production, scraping systems, and what breaks at scale.",
   alternates: {
-    canonical: "https://dav1lex.titancode.pl/blog",
+    canonical: "https://dav1lex.github.io/blog",
   },
   openGraph: {
     title: "Blog | Ömer Uğur",
     description:
       "Benchmarks on TTS and LLMs, AI agents in production, scraping systems, reverse engineering. What breaks and why.",
-    url: "https://dav1lex.titancode.pl/blog",
+    url: "https://dav1lex.github.io/blog",
     type: "website",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
@@ -33,7 +33,7 @@ const jsonLd = {
   name: "Ömer Uğur's Blog",
   description:
     "Articles on AI agents, TTS research, voice cloning, web scraping, and reverse engineering.",
-  url: "https://dav1lex.titancode.pl/blog",
+  url: "https://dav1lex.github.io/blog",
   author: {
     "@type": "Person",
     name: "Ömer Uğur",

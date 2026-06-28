@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Ömer Uğur - full-stack developer based in Poland. Made in Turkey, forged in Poland. Building AI agents, TTS research.",
   alternates: {
-    canonical: "https://dav1lex.titancode.pl/about",
+    canonical: "https://dav1lex.github.io/about",
   },
   openGraph: {
     title: "About | Ömer Uğur",
     description:
       "Ömer Uğur - full-stack developer based in Poland. Made in Turkey, forged in Poland.",
-    url: "https://dav1lex.titancode.pl/about",
+    url: "https://dav1lex.github.io/about",
     type: "website",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },

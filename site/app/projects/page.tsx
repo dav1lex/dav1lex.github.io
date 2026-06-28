@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Production work: AI real estate platform with 8 agents scraping OLX at scale, voice reports for field workers, job-analysis Chrome extension, and the open AI benchmark suite for TTS and LLMs. Cloudflare-first stack.",
   alternates: {
-    canonical: "https://dav1lex.titancode.pl/projects",
+    canonical: "https://dav1lex.github.io/projects",
   },
   openGraph: {
     title: "Projects | Ömer Uğur",
     description:
       "AI real estate with 8 agents scraping OLX, voice reports for field workers, Chrome extension, open benchmarks for TTS and LLMs.",
-    url: "https://dav1lex.titancode.pl/projects",
+    url: "https://dav1lex.github.io/projects",
     type: "website",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },

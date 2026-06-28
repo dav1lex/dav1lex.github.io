@@ -1,69 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://dav1lex.titancode.pl</loc>
+    <loc>https://dav1lex.github.io</loc>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
   <url>
-    <loc>https://dav1lex.titancode.pl/blog</loc>
+    <loc>https://dav1lex.github.io/blog</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://dav1lex.titancode.pl/projects</loc>
+    <loc>https://dav1lex.github.io/projects</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dav1lex.titancode.pl/about</loc>
+    <loc>https://dav1lex.github.io/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://dav1lex.titancode.pl/blog/breathiness-preservation-benchmark</loc>
+    <loc>https://dav1lex.github.io/blog/breathiness-preservation-benchmark</loc>
     <lastmod>2026-05-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dav1lex.titancode.pl/blog/chatterbox-emotion-channel-analysis</loc>
+    <loc>https://dav1lex.github.io/blog/chatterbox-emotion-channel-analysis</loc>
     <lastmod>2026-05-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dav1lex.titancode.pl/blog/identity-drift-benchmark</loc>
+    <loc>https://dav1lex.github.io/blog/identity-drift-benchmark</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dav1lex.titancode.pl/blog/interrogation-bench</loc>
+    <loc>https://dav1lex.github.io/blog/interrogation-bench</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dav1lex.titancode.pl/blog/prosody-transfer-benchmark</loc>
+    <loc>https://dav1lex.github.io/blog/prosody-transfer-benchmark</loc>
     <lastmod>2026-05-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dav1lex.titancode.pl/blog/punctuation-sensitivity-benchmark</loc>
+    <loc>https://dav1lex.github.io/blog/punctuation-sensitivity-benchmark</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dav1lex.titancode.pl/blog/semantic-priming-experiment</loc>
+    <loc>https://dav1lex.github.io/blog/semantic-priming-experiment</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dav1lex.titancode.pl/blog/subliminal-hangover</loc>
+    <loc>https://dav1lex.github.io/blog/subliminal-hangover</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

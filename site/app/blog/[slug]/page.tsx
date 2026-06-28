@@ -9,7 +9,7 @@ import { formatDate } from "@/lib/utils";
 import AudioPlayer from "@/components/AudioPlayer";
 import ZoomableImage from "@/components/ZoomableImage";
 
-const SITE = "https://dav1lex.titancode.pl";
+const SITE = "https://dav1lex.github.io";
 
 export async function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));

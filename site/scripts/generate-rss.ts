@@ -4,7 +4,7 @@ import { fileURLToPath } from "url";
 import matter from "gray-matter";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const SITE = "https://dav1lex.titancode.pl";
+const SITE = "https://dav1lex.github.io";
 const POSTS_DIR = path.join(__dirname, "..", "_posts");
 const OUT = path.join(__dirname, "..", "public", "rss.xml");
 

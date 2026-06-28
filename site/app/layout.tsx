@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://dav1lex.titancode.pl"),
+  metadataBase: new URL("https://dav1lex.github.io"),
   title: {
     default: "Ömer Uğur - Full-Stack Developer & Tinkerer",
     template: "%s | Ömer Uğur",

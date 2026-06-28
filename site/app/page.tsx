@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   description:
     "Independent benchmarks on TTS and LLMs measuring what vendors won't publish: voice drift over 5+ min, identity collapse, emotion control, prompt extraction, security. Plus AI agents, scraping systems, and what breaks when you ship them.",
   alternates: {
-    canonical: "https://dav1lex.titancode.pl",
+    canonical: "https://dav1lex.github.io",
   },
   openGraph: {
     title: "Ömer Uğur - Full-Stack Developer & Tinkerer",
     description:
       "Independent benchmarks on TTS and LLMs: voice drift, identity collapse, prompt extraction, security. AI agents, scraping, what breaks at scale.",
-    url: "https://dav1lex.titancode.pl",
+    url: "https://dav1lex.github.io",
     type: "profile",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     firstName: "Ömer",
@@ -36,7 +36,7 @@ const jsonLd = {
   "@type": "Person",
   name: "Ömer Uğur",
   alternateName: "omer ugur",
-  url: "https://dav1lex.titancode.pl",
+  url: "https://dav1lex.github.io",
   jobTitle: "Full-Stack Developer & AI Researcher",
   description:
     "Independent benchmarks on TTS and LLMs: voice drift, identity collapse, prompt extraction, security. Plus AI agents, scraping systems, what breaks at scale.",

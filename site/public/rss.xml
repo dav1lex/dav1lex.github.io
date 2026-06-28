@@ -2,56 +2,56 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ömer uğur</title>
-    <link>https://dav1lex.titancode.pl</link>
+    <link>https://dav1lex.github.io</link>
     <description>the internet raised me</description>
     <language>en</language>
-    <atom:link href="https://dav1lex.titancode.pl/rss.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://dav1lex.github.io/rss.xml" rel="self" type="application/rss+xml"/>
         <item>
       <title>can ai keep a secret? i built an interrogation bench to find out</title>
-      <link>https://dav1lex.titancode.pl/blog/interrogation-bench</link>
-      <guid>https://dav1lex.titancode.pl/blog/interrogation-bench</guid>
+      <link>https://dav1lex.github.io/blog/interrogation-bench</link>
+      <guid>https://dav1lex.github.io/blog/interrogation-bench</guid>
       <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>does reading numbers break tts prosody?</title>
-      <link>https://dav1lex.titancode.pl/blog/subliminal-hangover</link>
-      <guid>https://dav1lex.titancode.pl/blog/subliminal-hangover</guid>
+      <link>https://dav1lex.github.io/blog/subliminal-hangover</link>
+      <guid>https://dav1lex.github.io/blog/subliminal-hangover</guid>
       <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>does prior context leak into tts prosody?</title>
-      <link>https://dav1lex.titancode.pl/blog/semantic-priming-experiment</link>
-      <guid>https://dav1lex.titancode.pl/blog/semantic-priming-experiment</guid>
+      <link>https://dav1lex.github.io/blog/semantic-priming-experiment</link>
+      <guid>https://dav1lex.github.io/blog/semantic-priming-experiment</guid>
       <pubDate>Tue, 26 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>do tts voices drift over 5 minutes of speech?</title>
-      <link>https://dav1lex.titancode.pl/blog/identity-drift-benchmark</link>
-      <guid>https://dav1lex.titancode.pl/blog/identity-drift-benchmark</guid>
+      <link>https://dav1lex.github.io/blog/identity-drift-benchmark</link>
+      <guid>https://dav1lex.github.io/blog/identity-drift-benchmark</guid>
       <pubDate>Mon, 25 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>do tts models actually read punctuation?</title>
-      <link>https://dav1lex.titancode.pl/blog/punctuation-sensitivity-benchmark</link>
-      <guid>https://dav1lex.titancode.pl/blog/punctuation-sensitivity-benchmark</guid>
+      <link>https://dav1lex.github.io/blog/punctuation-sensitivity-benchmark</link>
+      <guid>https://dav1lex.github.io/blog/punctuation-sensitivity-benchmark</guid>
       <pubDate>Mon, 25 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>do voice clones keep your voice texture?</title>
-      <link>https://dav1lex.titancode.pl/blog/breathiness-preservation-benchmark</link>
-      <guid>https://dav1lex.titancode.pl/blog/breathiness-preservation-benchmark</guid>
+      <link>https://dav1lex.github.io/blog/breathiness-preservation-benchmark</link>
+      <guid>https://dav1lex.github.io/blog/breathiness-preservation-benchmark</guid>
       <pubDate>Sun, 24 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>does emotion control work the same across tts models?</title>
-      <link>https://dav1lex.titancode.pl/blog/chatterbox-emotion-channel-analysis</link>
-      <guid>https://dav1lex.titancode.pl/blog/chatterbox-emotion-channel-analysis</guid>
+      <link>https://dav1lex.github.io/blog/chatterbox-emotion-channel-analysis</link>
+      <guid>https://dav1lex.github.io/blog/chatterbox-emotion-channel-analysis</guid>
       <pubDate>Sun, 24 May 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>how well does voice cloning preserve pitch and prosody?</title>
-      <link>https://dav1lex.titancode.pl/blog/prosody-transfer-benchmark</link>
-      <guid>https://dav1lex.titancode.pl/blog/prosody-transfer-benchmark</guid>
+      <link>https://dav1lex.github.io/blog/prosody-transfer-benchmark</link>
+      <guid>https://dav1lex.github.io/blog/prosody-transfer-benchmark</guid>
       <pubDate>Sun, 24 May 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
