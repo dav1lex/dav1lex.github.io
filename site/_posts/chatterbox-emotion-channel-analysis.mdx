@@ -6,9 +6,9 @@ tags: ["tts", "research", "emotion"]
 
 i wanted to answer a simple question: when you tell a TTS model to "sound happy" or "sound angry," does it change the same things across different models?
 
-there's a known paper by kacper wikiel where he tested this on a model called Zonos. Zonos has an 8-dimensional emotion vector - basically 8 knobs you can tweak independently. kacper found something interesting: **timbre** (the texture of the voice) moved the most, but **pitch** was the best predictor of which emotion was being expressed. there's a mismatch between what physically changes and what carries the information.
+there's a known paper by [kacper wikiel](https://kacperwikiel.com/) where he tested this on a model called [Zonos](https://github.com/Zyphra/Zonos). Zonos has an 8-dimensional emotion vector - basically 8 knobs you can tweak independently. kacper found something interesting: **timbre** (the texture of the voice) moved the most, but **pitch** was the best predictor of which emotion was being expressed. there's a mismatch between what physically changes and what carries the information.
 
-i wanted to see if this mismatch holds for a different model: Chatterbox.
+i wanted to see if this mismatch holds for a different model: [Chatterbox](https://github.com/resemble-ai/chatterbox).
 
 ## what i did
 
@@ -33,7 +33,7 @@ what this tells me: **architecture shapes how emotion shows up.** Zonos's 8D vec
 
 all 6 channels still beat the random baseline (0.143), so the exaggeration knob does affect everything - just not evenly.
 
-![channel accuracy heatmap across 7 emotions](/research/heatmap-by-emotion.png)
+<ZoomableImage src="/research/heatmap-by-emotion.png" alt="channel accuracy heatmap across 7 emotions" width="1500" height="750" />
 
 ## caveats
 

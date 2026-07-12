@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { CONTACT } from "@/lib/contact";
 import "./globals.css";
 
+const SITE_URL = "https://dav1lex.github.io";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://dav1lex.github.io"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Ömer Uğur - Full-Stack Developer & Tinkerer",
     template: "%s | Ömer Uğur",
@@ -29,6 +32,23 @@ export const metadata: Metadata = {
   },
 };
 
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  url: SITE_URL,
+  name: "Ömer Uğur",
+  description:
+    "Independent benchmarks on TTS and LLMs — voice drift, identity collapse, prompt extraction, security. Plus AI agents, scraping systems, and what breaks at scale.",
+  author: {
+    "@id": `${SITE_URL}/#person`,
+  },
+  publisher: {
+    "@id": `${SITE_URL}/#person`,
+  },
+  inLanguage: "en",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -44,6 +64,10 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full bg-bg text-text font-[Georgia,Times_New_Roman,serif]">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <div className="max-w-2xl mx-auto px-5 py-16">
           <Header />
           <main>{children}</main>

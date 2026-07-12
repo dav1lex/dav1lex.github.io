@@ -34,6 +34,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": "https://dav1lex.github.io/#person",
   name: "Ömer Uğur",
   alternateName: "omer ugur",
   url: "https://dav1lex.github.io",

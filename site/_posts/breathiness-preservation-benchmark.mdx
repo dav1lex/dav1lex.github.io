@@ -10,11 +10,11 @@ i wanted to measure this objectively. so i built a benchmark.
 
 ## what i did
 
-i picked 3 pairs of female speakers from the VCTK dataset. each pair has one breathy speaker and one neutral speaker, saying the same sentence. i ran these through 3 TTS models:
+i picked 3 pairs of female speakers from the [VCTK dataset](https://datashare.ed.ac.uk/handle/10283/3443). each pair has one breathy speaker and one neutral speaker, saying the same sentence. i ran these through 3 TTS models:
 
-- **XTTS-v2** - supports voice cloning
-- **Chatterbox** - supports voice cloning
-- **Kokoro** - no voice cloning (included as a baseline)
+- [**XTTS-v2**](https://huggingface.co/coqui/XTTS-v2) - supports voice cloning
+- [**Chatterbox**](https://github.com/resemble-ai/chatterbox) - supports voice cloning
+- [**Kokoro**](https://huggingface.co/hexgrad/Kokoro-82M) - no voice cloning (included as a baseline)
 
 i measured breathiness using standard acoustic metrics: CPP (cepstral peak prominence) and HNR (harmonic-to-noise ratio). both are well-established proxies for perceived breathiness. lower CPP = more breathy. lower HNR = more breathy.
 

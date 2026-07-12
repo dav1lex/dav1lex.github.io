@@ -1,0 +1,20 @@
+# Ömer Uğur — TTS & LLM Research
+
+> Independent benchmarks on text-to-speech and large language models. First-hand measurements of voice drift, identity collapse, emotion control, punctuation sensitivity, semantic priming, and LLM interrogation resistance. Plus AI agents, scraping systems, and what breaks at scale.
+
+## Blog Posts
+
+- [do voice clones keep your voice texture?](https://dav1lex.github.io/blog/breathiness-preservation-benchmark): Benchmarks breathiness preservation (CPP, HNR) across XTTS-v2, Chatterbox, and Kokoro using VCTK speaker pairs
+- [does emotion control work the same across tts models?](https://dav1lex.github.io/blog/chatterbox-emotion-channel-analysis): Replicates Kacper Wikiel's Zonos emotion channel analysis on Chatterbox — finds architecture determines which acoustic channels carry emotion
+- [do tts voices drift over 5 minutes of speech?](https://dav1lex.github.io/blog/identity-drift-benchmark): Measures acoustic drift across 5-minute monologues from 3 TTS models using 15-second windowed feature extraction
+- [can ai keep a secret? i built an interrogation bench to find out](https://dav1lex.github.io/blog/interrogation-bench): Tests LLM resistance to psychological interrogation — narrative prompts, reasoning effects, dual-AI dynamics, terminal log injection
+- [how well does voice cloning preserve pitch and prosody?](https://dav1lex.github.io/blog/prosody-transfer-benchmark): Benchmarks F0 contour preservation via DTW and contrast retention across 3 TTS models
+- [do tts models actually read punctuation?](https://dav1lex.github.io/blog/punctuation-sensitivity-benchmark): Tests whether TTS models differentiate period vs question mark, comma vs em-dash, reported vs quoted speech
+- [does prior context leak into tts prosody?](https://dav1lex.github.io/blog/semantic-priming-experiment): Semantic priming experiment — does a sad paragraph before a neutral sentence change the prosody? Includes audio samples
+- [does reading numbers break tts prosody?](https://dav1lex.github.io/blog/subliminal-hangover): Pre-registered replication of the "subliminal hangover" effect — 600 wavs, mixed-effects models, finds universal tempo acceleration after number primes
+
+## Other Pages
+
+- [About](https://dav1lex.github.io/about): Full-stack developer based in Poland. CS grad, AI research, TTS benchmarks
+- [Projects](https://dav1lex.github.io/projects): Production work — AI real estate platform, voice reports, Chrome extension, open TTS benchmarks
+- [TTS Research Repo](https://github.com/dav1lex/tts-research): Full code, data, and PDF reports for all benchmarks

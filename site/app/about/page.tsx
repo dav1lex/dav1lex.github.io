@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { CONTACT } from "@/lib/contact";
+
+const SITE = "https://dav1lex.github.io";
 
 export const metadata: Metadata = {
   title: "About",
@@ -23,8 +26,56 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  const profileJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": `${SITE}/about#profilepage`,
+    url: `${SITE}/about`,
+    mainEntity: {
+      "@id": `${SITE}/#person`,
+    },
+    about: {
+      "@id": `${SITE}/#person`,
+    },
+  };
+
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${SITE}/#person`,
+    name: "Ömer Uğur",
+    alternateName: "davilex",
+    url: SITE,
+    jobTitle: "Full-Stack Developer & AI Researcher",
+    description:
+      "Full-stack developer based in Poland. Made in Turkey, forged in Poland. Building AI agents, TTS research.",
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "PL",
+      addressLocality: "Warsaw",
+    },
+    sameAs: [CONTACT.github, CONTACT.linkedin, `mailto:${CONTACT.email}`],
+    knowsAbout: [
+      "Next.js",
+      "TypeScript",
+      "AI Agents",
+      "Text-to-Speech",
+      "Web Scraping",
+      "Reverse Engineering",
+      "Cloudflare Workers",
+    ],
+  };
+
   return (
     <section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profileJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       <h1 className="text-xl mb-6 text-text">about</h1>
 
       <div className="space-y-4 text-[15px] leading-[1.7]">

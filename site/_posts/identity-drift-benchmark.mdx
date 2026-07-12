@@ -10,7 +10,7 @@ i built a benchmark to find out.
 
 ## what i did
 
-i generated 5-minute monologues from 3 models (Chatterbox, XTTS-v2, Kokoro) using the same 868-word narrative text. same reference voice (VCTK p229) as the earlier papers.
+i generated 5-minute monologues from 3 models ([Chatterbox](https://github.com/resemble-ai/chatterbox), [XTTS-v2](https://huggingface.co/coqui/XTTS-v2), [Kokoro](https://huggingface.co/hexgrad/Kokoro-82M)) using the same 868-word narrative text. same reference voice ([VCTK p229](https://datashare.ed.ac.uk/handle/10283/3443)) as the earlier papers.
 
 i sliced each into 15-second windows and measured acoustic features per window: pitch (pyin), breathiness (Praat CPP), spectral features, MFCCs, RMS loudness, spectral centroid. then i measured drift as the IQR-scaled Euclidean distance from the reference clip across time.
 
@@ -28,7 +28,7 @@ i sliced each into 15-second windows and measured acoustic features per window: 
 
 **breathiness is the least stable channel.** for both voice-cloning models, CPP (breathiness) drift exceeded pitch drift. the texture of the voice degrades faster than the pitch. this connects directly to the breathiness benchmark finding - breathiness was the hardest feature to preserve in short-form cloning, and now it's also the fastest to drift over time.
 
-![drift over time for all 3 models](/research/drift-over-time.png)
+<ZoomableImage src="/research/drift-over-time.png" alt="drift over time for all 3 models" width="1800" height="900" />
 
 ## little surprises
 

@@ -56,19 +56,19 @@ when kokoro sees any paragraph first: pitch jumps ~15hz, speed drops 34%, pauses
 
 but check the primed rows against each other. neutral, owl, death. they all sound kinda the same. the giant gap is cold vs anything. the model cares that something was there before. it does not care much what that something was. binary switch, not a dial.
 
-<ZoomableImage src="/research/semantic-kokoro-detail.png" alt="kokoro feature detail across conditions" caption="kokoro's speech rate, pause count, and f0 range across all 4 conditions" />
+<ZoomableImage src="/research/semantic-kokoro-detail.png" alt="kokoro feature detail across conditions" caption="kokoro's speech rate, pause count, and f0 range across all 4 conditions" width="1780" height="1229" />
 
-<ZoomableImage src="/research/semantic-f0-mean.png" alt="F0 mean by condition per model" caption="kokoro f0 mean: cold (190 hz) vs any prime (196 to 208 hz). chatterbox and xtts flat across the board." />
+<ZoomableImage src="/research/semantic-f0-mean.png" alt="F0 mean by condition per model" caption="kokoro f0 mean: cold (190 hz) vs any prime (196 to 208 hz). chatterbox and xtts flat across the board." width="2680" height="770" />
 
 ## stuff i didnt expect
 
-**kokoro is a deterministic robot and that makes everything look huge.** in the cold condition, f0 std across 5 reps is 0.28 hz. that's not normal. it says the sentence the exact same way every single time. so when you add context and it shifts by 15 hz, the stats go nuclear. f = 369, eta squared = 0.986. those are silly numbers. they come from the model having no variation, not from the context effect being massive. dont read them as real world effect sizes.
+**[kokoro](https://huggingface.co/hexgrad/Kokoro-82M) is a deterministic robot and that makes everything look huge.** in the cold condition, f0 std across 5 reps is 0.28 hz. that's not normal. it says the sentence the exact same way every single time. so when you add context and it shifts by 15 hz, the stats go nuclear. f = 369, eta squared = 0.986. those are silly numbers. they come from the model having no variation, not from the context effect being massive. dont read them as real world effect sizes.
 
 **split_pattern=none saved the whole experiment.** kokoro defaults to splitting text on newlines. so "paragraph\n\ntarget sentence" becomes two independent utterances with zero cross attention between them. there is no priming test possible under that setting. i passed `split_pattern=None` to keep it as one chunk so the transformer sees the full phoneme sequence. without this one line, kokoro would have scored 0/8 like the others and this post wouldn't exist.
 
-**chatterbox won the last two benchmarks and lost this one.** it crushed the punctuation sensitivity test and the emotion channel test. but here, at n=5, the noise between repetitions was bigger than any context signal. doesn't mean priming is zero. just means 5 reps is not enough to catch it for this model.
+**[chatterbox](https://github.com/resemble-ai/chatterbox) won the last two benchmarks and lost this one.** it crushed the punctuation sensitivity test and the emotion channel test. but here, at n=5, the noise between repetitions was bigger than any context signal. doesn't mean priming is zero. just means 5 reps is not enough to catch it for this model.
 
-**xtts was equally blind but for different reasons.** speech rate variance inside one condition was sd = 4.3 words per second. that's almost as big as the cold mean itself. the model output is just noisy. you can't detect small shifts when the baseline is all over the place.
+**[xtts](https://huggingface.co/coqui/XTTS-v2) was equally blind but for different reasons.** speech rate variance inside one condition was sd = 4.3 words per second. that's almost as big as the cold mean itself. the model output is just noisy. you can't detect small shifts when the baseline is all over the place.
 
 ## limitations
 
@@ -78,7 +78,7 @@ but check the primed rows against each other. neutral, owl, death. they all soun
 - kokoro's zero variance inflates p values. those 0.0000's are real but exaggerated.
 - the owl paragraph has different words than the death paragraph. different phonemes, different syllable counts. we're confounded. is it semantics or just different sounds bleeding in?
 - no human listening test. no abx. just acoustics.
-- kokoro uses af_bella voice. the other two use vctk p229. cross model comparison is dirty.
+- kokoro uses af_bella voice. the other two use [vctk p229](https://datashare.ed.ac.uk/handle/10283/3443). cross model comparison is dirty.
 - 144 pairwise tests with bonferroni. type i error says hi.
 
 full code and results in the [tts-research repo](https://github.com/dav1lex/tts-research).

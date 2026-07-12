@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+const SITE = "https://dav1lex.github.io";
+
 export const metadata: Metadata = {
   title: "Projects",
   description:
@@ -64,8 +66,35 @@ const PROJECTS = [
 ];
 
 export default function ProjectsPage() {
+  const collectionJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${SITE}/projects#collectionpage`,
+    url: `${SITE}/projects`,
+    name: "Projects by Ömer Uğur",
+    description:
+      "Production work: AI real estate platform, voice reports for field workers, job-analysis Chrome extension, open TTS benchmarks.",
+    author: {
+      "@id": `${SITE}/#person`,
+    },
+    publisher: {
+      "@id": `${SITE}/#person`,
+    },
+    hasPart: PROJECTS.map((p) => ({
+      "@type": "CreativeWork",
+      name: p.name,
+      url: p.url,
+      description: p.desc,
+      keywords: p.tech.join(", "),
+    })),
+  };
+
   return (
     <section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+      />
       <h1 className="text-xl mb-8 text-text">projects</h1>
       <div className="space-y-0 border-t border-rule">
         {PROJECTS.map((p) => (

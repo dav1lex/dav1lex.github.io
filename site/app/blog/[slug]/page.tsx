@@ -74,20 +74,54 @@ export default async function PostPage({
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
+    "@id": `${SITE}/blog/${slug}#article`,
     headline: post.meta.title,
     description: post.meta.summary,
     datePublished: post.meta.date,
+    dateModified: post.meta.date,
+    image: {
+      "@type": "ImageObject",
+      url: `${SITE}/og-image.png`,
+      width: 1200,
+      height: 630,
+    },
     author: {
-      "@type": "Person",
-      name: "Ömer Uğur",
-      url: SITE,
+      "@id": `${SITE}/#person`,
     },
     publisher: {
-      "@type": "Person",
-      name: "Ömer Uğur",
+      "@id": `${SITE}/#person`,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE}/blog/${slug}`,
     },
     url: `${SITE}/blog/${slug}`,
     keywords: post.meta.tags,
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: `${SITE}/blog`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.meta.title,
+        item: `${SITE}/blog/${slug}`,
+      },
+    ],
   };
 
   return (
@@ -95,6 +129,10 @@ export default async function PostPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <header className="mb-8">
         <p className="font-mono text-xs text-muted mb-2 tracking-[0.5px]">
@@ -105,6 +143,9 @@ export default async function PostPage({
           <span className="text-muted"> · {post.meta.readingTime} min read</span>
         </p>
         <h1 className="text-xl text-text">{post.meta.title}</h1>
+        <p className="font-mono text-xs text-muted mt-2">
+          by <span className="text-text">Ömer Uğur</span> — full-stack developer & AI researcher, Poland
+        </p>
       </header>
       <div className="prose-custom">{content}</div>
 

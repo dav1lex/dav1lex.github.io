@@ -6,9 +6,11 @@ interface ZoomableImageProps {
   src: string;
   alt: string;
   caption?: string;
+  width?: number | string;
+  height?: number | string;
 }
 
-export default function ZoomableImage({ src, alt, caption }: ZoomableImageProps) {
+export default function ZoomableImage({ src, alt, caption, width, height }: ZoomableImageProps) {
   const [open, setOpen] = useState(false);
 
   const close = useCallback(() => setOpen(false), []);
@@ -28,6 +30,8 @@ export default function ZoomableImage({ src, alt, caption }: ZoomableImageProps)
         <img
           src={src}
           alt={alt}
+          width={width}
+          height={height}
           className="w-full border border-rule bg-block"
         />
         {caption && (

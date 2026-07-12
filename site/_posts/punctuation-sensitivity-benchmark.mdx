@@ -18,7 +18,7 @@ i designed 28 test utterances across 5 categories:
 - **trailing**: ellipsis vs period
 - **capitalization**: ALL-CAPS vs normal vs lowercase
 
-i generated audio with 3 models (Chatterbox, XTTS-v2, Kokoro) using the same VCTK p229 reference voice. then i extracted pause metrics, terminal F0 slope, amplitude decay rate, and overall F0 statistics.
+i generated audio with 3 models ([Chatterbox](https://github.com/resemble-ai/chatterbox), [XTTS-v2](https://huggingface.co/coqui/XTTS-v2), [Kokoro](https://huggingface.co/hexgrad/Kokoro-82M)) using the same [VCTK p229](https://datashare.ed.ac.uk/handle/10283/3443) reference voice. then i extracted pause metrics, terminal F0 slope, amplitude decay rate, and overall F0 statistics.
 
 ## results
 
@@ -34,7 +34,7 @@ Chatterbox is the opposite. it nails F0-based cues: question rise (+68.5 Hz is a
 
 no model does both well. F0 sensitivity and pause ordering look like independent abilities - neither implies the other.
 
-![punctuation sensitivity summary across categories](/research/punctuation-summary.png)
+<ZoomableImage src="/research/punctuation-summary.png" alt="punctuation sensitivity summary across categories" width="1917" height="813" />
 
 ## little surprises
 

@@ -9,10 +9,10 @@ const POSTS_DIR = path.join(__dirname, "..", "_posts");
 const OUT = path.join(__dirname, "..", "public", "sitemap.xml");
 
 const pages: { loc: string; priority: number; changefreq: string; lastmod?: string }[] = [
-  { loc: SITE, priority: 1.0, changefreq: "daily" },
-  { loc: `${SITE}/blog`, priority: 0.9, changefreq: "daily" },
-  { loc: `${SITE}/projects`, priority: 0.7, changefreq: "monthly" },
-  { loc: `${SITE}/about`, priority: 0.5, changefreq: "monthly" },
+  { loc: SITE, priority: 1.0, changefreq: "daily", lastmod: "2026-05-28" },
+  { loc: `${SITE}/blog`, priority: 0.9, changefreq: "daily", lastmod: "2026-05-28" },
+  { loc: `${SITE}/projects`, priority: 0.7, changefreq: "monthly", lastmod: "2026-05-24" },
+  { loc: `${SITE}/about`, priority: 0.5, changefreq: "monthly", lastmod: "2026-05-24" },
 ];
 
 // Add blog posts

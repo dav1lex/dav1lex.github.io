@@ -20,7 +20,7 @@ hypothesis: `f0_cv(emotional target | number prime) < f0_cv(emotional target | n
 
 ## pilot (_7): a signal, not an answer
 
-single emotional target sentence. 5 repetitions. 3 models (Chatterbox, XTTS-v2, Kokoro). 45 wavs total.
+single emotional target sentence. 5 repetitions. 3 models ([Chatterbox](https://github.com/resemble-ai/chatterbox), [XTTS-v2](https://huggingface.co/coqui/XTTS-v2), [Kokoro](https://huggingface.co/hexgrad/Kokoro-82M)). 45 wavs total.
 
 the prime: 14 comma-separated digit strings (`847, 23, 5091, 312, ...`). the control: 14 length-matched nouns (`apple, bridge, window, carpet, ...`). primes and target generated together as one string, then whisperx v3 word alignment slices out just the target segment for measurement.
 
@@ -40,7 +40,7 @@ but the flaws were structural, not cosmetic:
 - **seed handling undocumented.** if noun and number conditions shared a seed, artifacts drive spurious differences.
 - **mixed effects needed.** Wilcoxon can't handle random effects for target and repetition.
 
-the signal was real enough to justify a real experiment. but it wasn't an answer. a colleague (Kacper Wikiel) called it: interesting, but not convincing. he was right.
+the signal was real enough to justify a real experiment. but it wasn't an answer. a colleague ([Kacper Wikiel](https://kacperwikiel.com/)) called it: interesting, but not convincing. he was right.
 
 ## replication (_8): the real thing
 
@@ -56,7 +56,7 @@ what changed from the pilot:
 - **mixed-effects models.** `f0_cv ~ condition + (1 | target_id) + (1 | repetition)` via `statsmodels.MixedLM`. effect sizes with 95% CIs, not just p-values.
 - **append-mode extraction.** the pipeline checks existing rows by ID and skips processed files. crucial when you're generating 600 wavs across multiple days.
 
-![speaking rate distribution by condition and model](/research/subliminal-tempo-distribution.png)
+<ZoomableImage src="/research/subliminal-tempo-distribution.png" alt="speaking rate distribution by condition and model" width="1140" height="499" />
 
 ## the result: tempo, not pitch
 
@@ -74,7 +74,7 @@ what changed from the pilot:
 
 this is the universal signal. the pilot had it too. Kokoro borderline, XTTS numerically present. but it was treated as secondary. it's primary.
 
-![f0_cv distribution by condition and model](/research/subliminal-f0cv-distribution.png)
+<ZoomableImage src="/research/subliminal-f0cv-distribution.png" alt="f0_cv distribution by condition and model" width="1146" height="499" />
 
 ### secondary finding: pitch compression
 
@@ -131,7 +131,7 @@ this isn't a fundamental tts flaw. it's a context-window management detail that 
 ## limitations
 
 - **no perceptual validation.** everything is acoustic. we don't know if listeners can hear +0.35 syllables/second. an ABX listening test would answer whether the measured effects cross the perceptual threshold.
-- **single voice per model.** Kokoro uses `af_bella`, Chatterbox and XTTS use VCTK p229. 3-5 diverse speaker embeddings per model needed to check if hangover is model or voice property.
+- **single voice per model.** Kokoro uses `af_bella`, Chatterbox and XTTS use [VCTK p229](https://datashare.ed.ac.uk/handle/10283/3443). 3-5 diverse speaker embeddings per model needed to check if hangover is model or voice property.
 - **single emotional valence.** all 10 targets were angry/indignant. sad, happy, neutral, and fearful might interact differently.
 - **digit strings only.** spelled-out numbers ("eight hundred forty seven") would isolate whether it's digit rhythm or semantics of counting driving the tempo effect.
 - **convergence warning on Chatterbox speaking_rate model.** optimizer hit boundary. coefficient direction (+0.35) and significance (p=0.006) consistent across attempts, but estimate should carry caveat.
