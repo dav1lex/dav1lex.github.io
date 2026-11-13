@@ -75,10 +75,14 @@ export default function ProjectsPage() {
     description:
       "Production work: AI real estate platform, voice reports for field workers, job-analysis Chrome extension, open TTS benchmarks.",
     author: {
+      "@type": "Person",
       "@id": `${SITE}/#person`,
+      name: "Ömer Uğur",
     },
     publisher: {
+      "@type": "Person",
       "@id": `${SITE}/#person`,
+      name: "Ömer Uğur",
     },
     hasPart: PROJECTS.map((p) => ({
       "@type": "CreativeWork",

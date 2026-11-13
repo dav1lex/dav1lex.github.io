@@ -19,10 +19,6 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -41,10 +37,14 @@ const websiteJsonLd = {
   description:
     "Independent benchmarks on TTS and LLMs — voice drift, identity collapse, prompt extraction, security. Plus AI agents, scraping systems, and what breaks at scale.",
   author: {
+    "@type": "Person",
     "@id": `${SITE_URL}/#person`,
+    name: "Ömer Uğur",
   },
   publisher: {
+    "@type": "Person",
     "@id": `${SITE_URL}/#person`,
+    name: "Ömer Uğur",
   },
   inLanguage: "en",
 };

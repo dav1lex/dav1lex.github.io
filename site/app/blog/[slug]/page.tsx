@@ -86,10 +86,14 @@ export default async function PostPage({
       height: 630,
     },
     author: {
+      "@type": "Person",
       "@id": `${SITE}/#person`,
+      name: "Ömer Uğur",
     },
     publisher: {
+      "@type": "Person",
       "@id": `${SITE}/#person`,
+      name: "Ömer Uğur",
     },
     mainEntityOfPage: {
       "@type": "WebPage",
